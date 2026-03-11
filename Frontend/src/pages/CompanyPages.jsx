@@ -53,7 +53,7 @@ const caseStudies = [
         tech: 'Java 17, Springboot, Hibernate, React, PostgreSQL'
     },
     {
-        tag: 'CORPORATE',
+        tag: 'BFSI',
         tagColor: '#0ea5e9',
         client: 'HDFC Life Insurance',
         logo: 'fa-building-columns',
@@ -70,7 +70,7 @@ const caseStudies = [
             'Scalable repository managing more than 200+ crore documents securely',
             'Improved policy servicing and faster document retrieval for agents and internal teams'
         ],
-        industry: 'Corporate',
+        industry: 'BFSI',
         tech: 'Java, REST APIs, DSpace, AWS S3, AWS RDS Aurora PostgreSQL, Elasticsearch, LDAP'
     },
     {
@@ -115,17 +115,18 @@ const caseStudies = [
         client: 'Aditya Birla Group',
         logo: 'fa-building-columns',
         title: 'Enterprise DMS for a Global Conglomerate',
-        challenge: 'Fragmented document handling across ABHFL, ABFL, and ABCDL subsidiaries resulted in critical retrieval delays, high licensing costs, limited security, and poor version control across 36+ countries.',
-        solution: 'VSDOX DMS deployed across three subsidiaries — ABHFL for automated loan-journey capture & DSA indexing, ABFL for time-bound distributor document management, and ABCDL for integrated DSA journey storage & retrieval on AWS/GCP.',
+        challenge: 'Fragmented document handling at multiple group companies such as ABHFL, ABFL, and ABCDL resulted in critical retrieval delays, high licensing costs, limited security, and poor version control across 36+ countries.',
+        solution: 'VSDOX DMS deployed at group companies — ABHFL for automated loan-journey capture & DSA indexing, ABFL for time-bound distributor document management, and ABCDL for integrated DSA journey storage & retrieval on AWS/GCP.',
         results: [
             'Automated capture & indexing speed up document retrieval',
-            'Reduced licensing costs with open-source VsDox DMS',
+            'Reduced total costs of ownership with VsDox DMS',
             'Enhanced batch barcoding improved document precision',
             'Role-based access & compliance strengthened data protection',
-            'Customized reporting as per business requirements'
+            'Customized reporting as per business requirements',
+            'Successfull migration of data from legacy DMS to VSDOX'
         ],
         industry: 'Banking & Financial Services',
-        tech: 'AWS, GCP, Java, Elasticsearch,Solr, PostgreSQL'
+        tech: 'AWS, GCP, Java, Elasticsearch, Solr, PostgreSQL'
     },
     {
         tag: 'BFSI',
@@ -139,7 +140,9 @@ const caseStudies = [
             'Digitized onboarding reduced manual intervention',
             'Automated validations significantly cut processing time',
             'Real-time dashboards improved operational tracking',
-            'Maker-checker workflows ensured 100% regulatory compliance'
+            'Maker-checker workflows ensured 100% regulatory compliance',
+            'Readily available integration with CRA APIs and 3rd party verification services',
+            'Fully compliant with PFRDA Processes and Guindelines'
         ],
         industry: 'Banking & Financial Services',
         tech: 'React, Java, Spring Boot, PostgreSQL, Tomcat'
@@ -160,6 +163,25 @@ const caseStudies = [
         ],
         industry: 'Manufacturing / Automotive',
         tech: 'SAP, Java, Google Enterprise, Solr, PostgreSQL'
+    },
+    {
+        tag: 'CORPORATE',
+        tagColor: '#0f766e',
+        client: 'Subros Ltd.',
+        logo: 'fa-industry',
+        title: 'Enterprise DMS for Automotive AC Manufacturer',
+        challenge: 'Large volumes of engineering and operational documents were stored across departments using legacy systems like Lotus Notes. The organization faced difficulties in document retrieval, workflow tracking, and secure information sharing. Lack of centralized document storage, limited metadata standardization, and absence of automated workflows created inefficiencies across teams and manufacturing locations.',
+        solution: 'VsDox open-source Document Management System implemented to centralize document storage and automate daily processes. Migrated over 8 TB of legacy data from Lotus Notes to the new DMS platform. Integrated Active Directory for secure authentication and role-based access control. Implemented workflow automation with escalation alerts and email notifications for faster approvals. Added advanced security features including time-bound document sharing, restricted screenshot capture, SSL security, and OWASP-compliant protection. Enabled bilingual metadata support (including Japanese) for indexing, OCR search, and document management.',
+        results: [
+            'Migrated over 8 TB of legacy enterprise documents into a centralized digital repository',
+            'Automated workflow approvals with notifications and escalation mechanisms',
+            'Secure document sharing with time-bound access and enhanced data protection',
+            'Advanced search and metadata indexing improved document retrieval efficiency',
+            'Bilingual metadata support enabled global collaboration and document accessibility',
+            'Scalable open-source ECM platform reduced licensing costs and improved ROI'
+        ],
+        industry: 'Manufacturing / Automotive Components',
+        tech: 'Java, Solr, PostgreSQL'
     },
     {
         tag: 'HEALTHCARE',
