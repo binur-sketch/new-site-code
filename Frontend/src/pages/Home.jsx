@@ -554,7 +554,7 @@ const Home = () => {
                 <div className="max-container">
                     <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                         <h1 style={{ fontWeight: '800' }}>Why Vir Softech</h1>
-                        <p style={{ color: 'var(--text-muted)' }}>Vir Softech is a Registered Service Provider of DSpace, ensuring certified expertise, reliable customization, and professional support for enterprise-grade DMS solutions.</p>
+                        <p style={{ color: 'var(--text-muted)' }}>Vir Softech is a Registered Service Provider (RSP) of DSpace, ensuring certified expertise, reliable customization, and professional support for enterprise-grade DMS solutions.</p>
                     </div>
                     <div className="why-vir-grid">
                         <div className="why-vir-card">

@@ -277,7 +277,7 @@ export const Corporate = () => {
                     </div>
                     <FeatureGrid features={[
                         { icon: 'fa-drafting-compass', title: 'Engineering Document Control', desc: 'Version-controlled repository for CAD drawings, BOMs, manuals, and specifications with change-history tracking.' },
-                        { icon: 'fa-certificate', title: 'Quality Management (QMS)', desc: 'Manage ISO 9001, IATF 16949, and AS9100 documentation with automated review and approval workflows.' },
+                        { icon: 'fa-certificate', title: 'Quality Management (QMS)', desc: 'Manage ISO 9001 and AS9100 documentation with automated review and approval workflows.' },
                         { icon: 'fa-truck', title: 'Supply Chain Documentation', desc: 'Centralize vendor agreements, purchase orders, certificates of conformance, and material test reports.' },
                         { icon: 'fa-gears', title: 'Maintenance Records (CMMS)', desc: 'Digital maintenance logs, SOP management, and equipment history for preventive and predictive maintenance.' },
                         { icon: 'fa-clipboard-check', title: 'Compliance & Audit Readiness', desc: 'Always-audit-ready documentation with automated compliance checks and complete traceability.' },
@@ -291,7 +291,7 @@ export const Corporate = () => {
                 desc="Leading manufacturers trust VSDOX to maintain product quality, reduce downtime, and pass audits with confidence."
                 benefits={[
                     { icon: 'fa-code-branch', title: 'Version Control & Change Management', desc: 'Never use an outdated drawing again. Enforce controlled document distribution.' },
-                    { icon: 'fa-triangle-exclamation', title: 'ISO & IATF Compliance', desc: 'Out-of-the-box support for ISO 9001, IATF 16949, and other international quality standards.' },
+                    { icon: 'fa-triangle-exclamation', title: 'ISO Compliance', desc: 'Out-of-the-box support for ISO 9001, and other international quality standards.' },
                     { icon: 'fa-file-circle-check', title: 'Digital Work Instructions', desc: 'Deliver the right work instruction to the right operator at the right station, digitally.' },
                     { icon: 'fa-plug', title: 'ERP-Connected Document Flow', desc: 'Link documents to SAP production orders, materials, and assets for full traceability.' },
                 ]}

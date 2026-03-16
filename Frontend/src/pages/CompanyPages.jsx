@@ -119,7 +119,7 @@ const caseStudies = [
         logo: 'fa-building-columns',
         title: 'Enterprise Document Management & Repository Modernization',
         challenge: 'The organization relied on IBM FileNet as its ECM/DMS platform for over a decade, resulting in high licensing costs and complex system architecture. Large volumes of policy documents, images, and customer records exceeding 100 TB created challenges in storage, retrieval, and system performance. The platform supported critical operations such as policy creation and servicing, where any downtime could directly impact customer experience and revenue. The customer required a scalable, high-performance, and cloud-ready document repository capable of handling millions of documents securely while ensuring fast access for internal teams and agents.',
-        solution: 'Implemented a scalable open-source Enterprise Content Management platform based on DSpace to replace the legacy FileNet system. Developed high-performance REST APIs to integrate with multiple front-end policy management applications. Enabled secure LDAP-based authentication and centralized access control. Built an advanced document viewer supporting images, PDFs, audio, and video files with features such as zoom, rotate, search, highlighting, and thumbnails. Designed a cloud-native architecture on AWS using Amazon S3 for document storage, Aurora PostgreSQL for metadata management, and Elasticsearch for fast document indexing and search. Conducted multiple VAPT security assessments to ensure enterprise-grade security and reliability.',
+        solution: 'Implemented a scalable open-source Enterprise Content Management platform based on VSDOX to replace the legacy FileNet system. Developed high-performance REST APIs to integrate with multiple front-end policy management applications. Enabled secure LDAP-based authentication and centralized access control. Built an advanced document viewer supporting images, PDFs, audio, and video files with features such as zoom, rotate, search, highlighting, and thumbnails. Designed a cloud-native architecture on AWS using Amazon S3 for document storage, Aurora PostgreSQL for metadata management, and Elasticsearch for fast document indexing and search. Conducted multiple VAPT security assessments to ensure enterprise-grade security and reliability.',
         results: [
             'Successfully migrated over 100 TB of legacy documents from IBM FileNet to the new DMS',
             'Significant reduction in licensing and maintenance costs using open-source ECM',
@@ -131,7 +131,7 @@ const caseStudies = [
             'Improved policy servicing and faster document retrieval for agents and internal teams'
         ],
         industry: 'BFSI',
-        tech: 'Java, REST APIs, DSpace, AWS S3, AWS RDS Aurora PostgreSQL, Elasticsearch, LDAP'
+        tech: 'Java, REST APIs, AWS S3, AWS RDS Aurora PostgreSQL, Elasticsearch, LDAP'
     },
     {
         tag: 'EDUCATION',
