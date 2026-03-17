@@ -7,6 +7,7 @@ import { CompanyPageHero } from './CompanyPages';
 import { apiFetch } from '../services/apiClient';
 import { API_ENDPOINTS } from '../config/apiEndpoints';
 import { AUTH_STORAGE_KEYS, DEFAULTS } from '../config/appConstants';
+import SEO from '../components/SEO';
 
 const getAuthToken = () => localStorage.getItem(AUTH_STORAGE_KEYS.token);
 const withAuth = () => ({ token: getAuthToken() });
@@ -281,6 +282,11 @@ const Blog = () => {
 
   return (
     <main>
+      <SEO
+        title="VSDOX Blog – ECM Insights, Document Management Trends & Technology"
+        description="Read the latest insights on Enterprise Content Management, document digitization, AI-powered DMS, and digital transformation from VSDOX experts at Vir Softech."
+        keywords="ECM blog, document management articles, AI DMS insights, enterprise content management trends, VSDOX blog, Vir Softech insights"
+      />
       {showDashboard && canManageContent && (
         <>
           <div onClick={() => setShowDashboard(false)} className="blog-dashboard-backdrop" />

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SpecializedDigitization from '../components/SpecializedDigitization';
+import SEO from '../components/SEO';
 
 const PageHero = ({ tag, title, subtitle, bgImage }) => (
     <section style={{
@@ -40,6 +41,11 @@ const DigitizationServices = () => {
 
     return (
         <main>
+            <SEO
+                title="Multimedia & Heritage Digitization Services – Archives & Document Scanning | VSDOX"
+                description="Professional digitization of rare manuscripts, audiovisual archives, microfilm, and large-format maps. Expert non-invasive scanning & long-term digital preservation by Vir Softech."
+                keywords="heritage digitization, document scanning India, manuscript digitization, microfilm conversion, audiovisual digitization, archival scanning services"
+            />
             <PageHero
                 tag="SPECIALIZED SERVICES"
                 title="Multimedia & Heritage Digitization"

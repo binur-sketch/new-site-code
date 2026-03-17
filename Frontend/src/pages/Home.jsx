@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ClientLogos from '../components/ClientLogos';
+import SEO from '../components/SEO';
 import GovtRegistrations from '../components/GovtRegistrations';
 import logo from '../logo.png';
 import heroVsdox from '../assets/hero-vsdox.png';
@@ -28,6 +29,11 @@ const Home = () => {
 
     return (
         <main>
+            <SEO 
+                title="AI-first Document Management Software | VSDOX"
+                description="AI-first enterprise document management system (EDMS) in India. Capture, index, store, archive, & retrieve documents at scale. Ask for a demo!"
+                keywords="AI-powered DMS, Enterprise Content Management, EDMS India, Document Digitization, Workflow Automation"
+            />
             {/* Redesigned Hero Section V4 */}
             <section className="hero-v4">
                 <div className="max-container">

@@ -5,6 +5,7 @@ import { API_ENDPOINTS } from '../config/apiEndpoints';
 import { AUTH_STORAGE_KEYS } from '../config/appConstants';
 import { apiFetch, apiRequest } from '../services/apiClient';
 import sanitizeHtml from '../utils/sanitizeHtml';
+import SEO from '../components/SEO';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -140,6 +141,15 @@ const BlogPost = () => {
 
   return (
     <main>
+      <SEO
+        title={`${post.title} | VSDOX Blog`}
+        description={post.excerpt || `Read about ${post.title} on the VSDOX blog — insights on enterprise content management and document technology.`}
+        keywords={[
+          post.category,
+          ...(post.tags || []).map(t => t.name),
+          'VSDOX blog', 'ECM insights', 'document management'
+        ].filter(Boolean).join(', ')}
+      />
       <section className="page-hero-container">
         <div
           className="page-hero-bg"

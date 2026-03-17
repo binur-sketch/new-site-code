@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 
 /* ── Shared hero banner ─────────────────────────────────── */
@@ -12,7 +13,7 @@ const PageHero = ({ title, subtitle, tag, bgColor, bgImage }) => (
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        padding: '160px 0 100px',
+        padding: 'clamp(80px, 10vw, 160px) 0 clamp(50px, 6vw, 100px)',
         position: 'relative',
         overflow: 'hidden',
         marginTop: '80px'
@@ -45,11 +46,16 @@ const PageHero = ({ title, subtitle, tag, bgColor, bgImage }) => (
 const StatsStrip = ({ stats }) => (
     <div className="trust-full-width-strip">
         <div className="max-container">
-            <div style={{ display: 'grid', gridTemplateColumns: `repeat(${stats.length}, 1fr)`, gap: '20px', textAlign: 'center' }}>
+            <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
+                gap: '20px', 
+                textAlign: 'center' 
+            }}>
                 {stats.map((s, i) => (
-                    <div key={i} style={{ padding: '20px' }}>
-                        <div className="stat-number">{s.value}</div>
-                        <div className="stat-label">{s.label}</div>
+                    <div key={i} style={{ padding: '20px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px' }}>
+                        <div className="stat-number" style={{ fontSize: 'clamp(32px, 4vw, 42px)' }}>{s.value}</div>
+                        <div className="stat-label" style={{ opacity: 0.8 }}>{s.label}</div>
                     </div>
                 ))}
             </div>
@@ -74,7 +80,12 @@ const FeatureGrid = ({ features }) => (
 const BenefitsList = ({ benefits, title, desc }) => (
     <section style={{ padding: '100px 0', background: '#f8fafc' }}>
         <div className="max-container">
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', gap: '80px' }}>
+            <div style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+                alignItems: 'center', 
+                gap: 'clamp(40px, 5vw, 80px)' 
+            }}>
                 <div className="reveal">
                     <span className="info-tag">Key Outcomes</span>
                     <h2 style={{ fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: '800', margin: '16px 0 20px', color: 'var(--text-dark)' }}>{title}</h2>
@@ -126,6 +137,11 @@ export const BankingBFSI = () => {
     useEffect(() => { window.scrollTo(0, 0); document.querySelectorAll('.reveal').forEach(el => el.classList.add('fade-in')); }, []);
     return (
         <>
+            <SEO
+                title="DMS for Banking & BFSI – Document Management for Banks & Insurance | VSDOX"
+                description="AI-powered document management for banking, insurance, NBFC, and pension funds. Automate KYC, loan processing, policy management & compliance with VSDOX."
+                keywords="BFSI document management, banking DMS, insurance ECM, KYC automation, loan document management, NBFC DMS India"
+            />
             <PageHero
                 tag="INDUSTRY SOLUTION · BFSI"
                 title="Document Intelligence for Banking & Financial Services"
@@ -199,6 +215,11 @@ export const Healthcare = () => {
     useEffect(() => { window.scrollTo(0, 0); document.querySelectorAll('.reveal').forEach(el => el.classList.add('fade-in')); }, []);
     return (
         <>
+            <SEO
+                title="Healthcare Document Management – Patient Records & Clinical DMS | VSDOX"
+                description="VSDOX securely manages patient records, clinical documents & insurance claims for hospitals. HIPAA-ready, AI-powered, and fully digitized healthcare DMS."
+                keywords="healthcare document management, patient records DMS, clinical records system, hospital ECM India, HIPAA compliant DMS"
+            />
             <PageHero
                 tag="INDUSTRY SOLUTION · HEALTHCARE"
                 title="Secure Patient Records & Clinical Document Management"
@@ -254,6 +275,11 @@ export const Corporate = () => {
     useEffect(() => { window.scrollTo(0, 0); document.querySelectorAll('.reveal').forEach(el => el.classList.add('fade-in')); }, []);
     return (
         <>
+            <SEO
+                title="Corporate ECM – Document Control for Manufacturing & Corporate Enterprises | VSDOX"
+                description="VSDOX provides smart document control for corporate, manufacturing and engineering firms. Version control, QMS, ERP integration & compliance automation."
+                keywords="corporate document management, manufacturing DMS, engineering document control, ECM corporate India, QMS document management"
+            />
             <PageHero
                 tag="INDUSTRY SOLUTION · Corporate"
                 title="Smart Document Control for Modern Corporate"
@@ -311,6 +337,11 @@ export const Education = () => {
     useEffect(() => { window.scrollTo(0, 0); document.querySelectorAll('.reveal').forEach(el => el.classList.add('fade-in')); }, []);
     return (
         <>
+            <SEO
+                title="Education DMS – Digital Archives & Repository for Universities | VSDOX"
+                description="VSDOX helps universities, libraries, and research institutions digitize academic records, create institutional repositories, and enable NAAC compliance documentation."
+                keywords="education document management, university digital archive, library digitization, institutional repository India, NAAC compliance docs"
+            />
             <PageHero
                 tag="INDUSTRY SOLUTION · EDUCATION"
                 title="Next-Generation Digital Archives for Academic Institutions"
@@ -379,6 +410,11 @@ export const Government = () => {
     useEffect(() => { window.scrollTo(0, 0); document.querySelectorAll('.reveal').forEach(el => el.classList.add('fade-in')); }, []);
     return (
         <>
+            <SEO
+                title="Government ECM – e-Governance & Public Sector Document Management | VSDOX"
+                description="VSDOX powers e-governance for Indian ministries, High Courts, land records & public sector bodies. GeM-empanelled, on-premise, sovereign-grade DMS solution."
+                keywords="government document management, e-governance DMS, public sector ECM, ministry records management, GeM DMS, land records digitization India"
+            />
             <PageHero
                 tag="INDUSTRY SOLUTION · GOVERNMENT"
                 title="Digital Document Governance for Public Sector Excellence"
@@ -447,6 +483,11 @@ export const Judiciary = () => {
     useEffect(() => { window.scrollTo(0, 0); document.querySelectorAll('.reveal').forEach(el => el.classList.add('fade-in')); }, []);
     return (
         <>
+            <SEO
+                title="Judiciary DMS – Case Records & E-Court Document Management | VSDOX"
+                description="VSDOX is trusted by 15+ High Courts in India for digitizing case files, e-filing, judgment management, and AI-powered legal document search."
+                keywords="judiciary document management, court DMS India, e-filing system, case records digitization, High Court ECM, legal document management"
+            />
             <PageHero
                 tag="INDUSTRY SOLUTION · JUDICIARY"
                 title="Digital Transformation for Courts & Legal Systems"

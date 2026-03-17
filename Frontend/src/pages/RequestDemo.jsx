@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { handleFormSubmission } from '../utils/formHandler';
 import { APP_CONTACT, DEFAULTS, LINKS } from '../config/appConstants';
+import SEO from '../components/SEO';
 
 
 const RequestDemo = () => {
@@ -78,6 +79,11 @@ const RequestDemo = () => {
 
     return (
         <main>
+            <SEO
+                title="Request a Free VSDOX Demo – See AI-Powered ECM Live"
+                description="Book a personalized, live demo of VSDOX Enterprise Content Management. See AI document classification, workflow automation, and intelligent search tailored to your industry."
+                keywords="VSDOX demo, ECM demo India, document management demo, DMS product demo, request demo AI document management"
+            />
             {/* Hero */}
             <section style={{
                 backgroundImage: `linear-gradient(135deg, rgba(15,23,42,0.92) 0%, rgba(29,99,237,0.85) 100%), url("${DEFAULTS.requestDemoHeroImage}")`,

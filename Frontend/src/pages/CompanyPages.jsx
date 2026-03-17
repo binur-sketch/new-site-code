@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { handleFormSubmission } from '../utils/formHandler';
 import { APP_CONTACT, DEFAULTS, LINKS } from '../config/appConstants';
+import SEO from '../components/SEO';
 
 
 
@@ -210,19 +211,36 @@ const caseStudies = [
     {
         tag: 'CORPORATE',
         tagColor: '#0f766e',
-        client: 'Hero MotoCorp Ltd.',
+        client: 'Hero MotoCorp Ltd. (All Departments)',
         logo: 'fa-motorcycle',
-        title: 'Enterprise ECM for Two-Wheeler Leader',
-        challenge: 'Inefficient manual document management, lack of system integration, difficulty in compliance tracking, inconsistent metadata, fragmented departmental systems, and high volume of paper records spread across multiple departments.',
-        solution: 'Open-source VsDox DMS deployed across all departments — HR (500K records + SAP/Google Enterprise integration), CAD (300K pages), Plant Maintenance (250K pages), Secretariat (drag-and-drop + audit logs), Corporate (dynamic watermarking), and Strategic Sourcing (configurable workflows).',
+        title: 'Enterprise ECM Transformation (All Departments)',
+        challenge: 'Inefficient manual document management, lack of system integration, difficulty in compliance tracking, inconsistent metadata, fragmented departmental systems, slow document retrieval, and complex licensing across multiple departments.',
+        solution: "VIR Softech's open-source DMS solution addressed these challenges by automating digitization and indexing across HR (500K records), CAD (300,000 pages), Plant Maintenance (250,000 pages), Secretariat, Corporate, and Strategic Sourcing departments. Integrated with Google Enterprise and SAP for seamless data transfer.",
         results: [
-            'Automated digitization & indexing reduced manual handling',
-            'Advanced search enabled faster, reliable document retrieval',
-            'Metadata categorization enhanced document organization',
-            'SAP & Google Enterprise integration ensured scalability'
+            'Automated digitization and indexing streamlined document workflows',
+            'Digitized records and advanced search facilitated 80% faster retrieval',
+            'Efficient metadata categorization enhanced document organization',
+            'Seamless integration with SAP and Google Enterprise for scalability'
         ],
         industry: 'Manufacturing / Automotive',
-        tech: 'SAP, Java, Google Enterprise, Solr, PostgreSQL'
+        tech: 'SAP, Java, Google Search, Solr, PostgreSQL'
+    },
+    {
+        tag: 'CORPORATE',
+        tagColor: '#0f766e',
+        client: 'Hero MotoCorp Ltd. (R&D Department)',
+        logo: 'fa-microscope',
+        title: 'Advanced DMS & Workflow Automation (R&D)',
+        challenge: 'Inefficient manual document management, workflow tracking issues, scalability and coordination challenges, limited document accessibility, inadequate security measures, and complicated version control within the R&D department.',
+        solution: 'Implementation of VsDox DMS featuring automated approval workflows, access request management, My Briefcase module, and User Dashboard module. The solution was deployed on-premise for enhanced security and integrated with SAP and Google Enterprise systems.',
+        results: [
+            'Achieved streamlined and automated document workflows across R&D',
+            'Provided a scalable, integrated system for growing documentation needs',
+            'Enhanced efficiency, accuracy, and security with robust DMS features',
+            'Improved version control and secure on-premise document handling'
+        ],
+        industry: 'Manufacturing / Automotive',
+        tech: 'SAP, Java, Google Search, Solr, PostgreSQL'
     },
     {
         tag: 'CORPORATE',
@@ -270,6 +288,11 @@ export const CaseStudies = () => {
 
     return (
         <>
+            <SEO
+                title="Client Success Stories – DMS Case Studies | VSDOX"
+                description="Discover how HDFC Life, Hero MotoCorp, High Courts, Government Ministries, and more transformed their document operations with VSDOX AI-powered ECM."
+                keywords="DMS case studies, ECM success stories, HDFC Life DMS, Hero MotoCorp document management, government digitization, judiciary case management"
+            />
             <CompanyPageHero
                 tag="SUCCESS STORIES"
                 title="Real Results. Real Clients. Real Impact."
@@ -298,7 +321,11 @@ export const CaseStudies = () => {
 
             <section style={{ padding: '80px 0', background: '#f8fafc' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '32px' }}>
+                    <div style={{ 
+                        display: 'grid', 
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', 
+                        gap: '32px' 
+                    }}>
                         {filtered.map((cs, i) => (
                             <div key={i} className="glass-card" style={{ padding: '0', overflow: 'hidden', background: 'white' }}>
                                 {/* Card Header */}
@@ -387,6 +414,11 @@ export const ContactUs = () => {
 
     return (
         <>
+            <SEO
+                title="Contact Us – Get in Touch with VSDOX ECM Experts"
+                description="Connect with Vir Softech's ECM experts in India. Reach us at our Noida HQ, international offices, or via phone, email, and WhatsApp. Request a personalized demo today."
+                keywords="contact VSDOX, Vir Softech contact, DMS support India, ECM demo request, document management contact"
+            />
             <CompanyPageHero
                 tag="GET IN TOUCH"
                 title="Let's Talk About Your Document Challenges"
@@ -394,9 +426,14 @@ export const ContactUs = () => {
                 bgImage="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2400&auto=format&fit=crop"
             />
 
-            <section style={{ padding: '100px 0', background: '#f8fafc' }}>
+            <section style={{ padding: 'clamp(60px, 10vw, 100px) 0', background: '#f8fafc' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '60px', alignItems: 'start' }}>
+                    <div className="contact-page-grid" style={{ 
+                        display: 'grid', 
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 450px), 1fr))', 
+                        gap: 'clamp(30px, 5vw, 60px)', 
+                        alignItems: 'start' 
+                    }}>
 
                         {/* Form */}
                         <div className="glass-card reveal" style={{ padding: '48px', background: 'white' }}>
@@ -524,15 +561,25 @@ export const PrivacyPolicy = () => {
     useEffect(() => { window.scrollTo(0, 0); }, []);
     return (
         <>
+            <SEO
+                title="Privacy Policy – VSDOX Data Protection | Vir Softech"
+                description="Read the VSDOX privacy policy by Vir Softech. Learn how we collect, use, and protect your personal data in compliance with DPDP Act and GDPR."
+                keywords="VSDOX privacy policy, data protection, Vir Softech GDPR, personal data management"
+            />
             <CompanyPageHero
                 tag="LEGAL"
                 title="Privacy Policy"
                 subtitle="We are committed to protecting your personal data and being transparent about how it is collected and used."
                 bgImage="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2400&auto=format&fit=crop"
             />
-            <section style={{ padding: '80px 0' }}>
+            <section style={{ padding: 'clamp(40px, 8vw, 80px) 0' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '240px 1fr', gap: '60px', alignItems: 'start' }}>
+                    <div className="legal-page-grid" style={{ 
+                        display: 'grid', 
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', 
+                        gap: 'clamp(30px, 6vw, 60px)', 
+                        alignItems: 'start' 
+                    }}>
                         {/* Sidebar TOC */}
                         <div style={{ position: 'sticky', top: '100px', background: '#f8fafc', borderRadius: '16px', padding: '24px', border: '1px solid var(--border)' }}>
                             <p style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '16px' }}>On This Page</p>
@@ -583,6 +630,11 @@ export const TermsConditions = () => {
     useEffect(() => { window.scrollTo(0, 0); }, []);
     return (
         <>
+            <SEO
+                title="Terms & Conditions – VSDOX Platform Usage | Vir Softech"
+                description="Read the terms and conditions governing use of the VSDOX enterprise content management platform by Vir Softech. Understand your rights, obligations, and our SLA commitments."
+                keywords="VSDOX terms and conditions, ECM platform terms, Vir Softech legal, DMS service agreement"
+            />
             <CompanyPageHero
                 tag="LEGAL"
                 title="Terms & Conditions"
@@ -591,7 +643,12 @@ export const TermsConditions = () => {
             />
             <section style={{ padding: '80px 0' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '240px 1fr', gap: '60px', alignItems: 'start' }}>
+                    <div className="legal-page-grid" style={{ 
+                        display: 'grid', 
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', 
+                        gap: 'clamp(30px, 6vw, 60px)', 
+                        alignItems: 'start' 
+                    }}>
                         {/* Sidebar */}
                         <div style={{ position: 'sticky', top: '100px', background: '#f8fafc', borderRadius: '16px', padding: '24px', border: '1px solid var(--border)' }}>
                             <p style={{ fontSize: '12px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '16px' }}>Sections</p>

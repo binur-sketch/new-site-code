@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { handleFormSubmission } from '../utils/formHandler';
 import { APP_CONTACT, DEFAULTS, LINKS } from '../config/appConstants';
+import SEO from '../components/SEO';
 
 
 import MilestoneTimeline from '../components/MilestoneTimeline';
@@ -188,6 +189,11 @@ export const Products = () => {
 
     return (
         <>
+            <SEO
+                title="VSDOX Platform – Enterprise Content Management System | DMS Features"
+                description="Explore VSDOX's complete ECM platform: DMS, AI-powered search, workflow automation, capture digitization, security & compliance — all in one open-source solution."
+                keywords="VSDOX features, ECM platform, DMS features, document workflow automation, AI search, enterprise content management India"
+            />
             {/* Hero */}
             <PageHero
                 title="VSDOX — Enterprise Content Management"
@@ -198,21 +204,31 @@ export const Products = () => {
             {/* Stats Strip */}
             <section style={{ background: '#0f172a', padding: '40px 0' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center' }}>
-                        {stats.map((s, i) => (
-                            <div key={i}>
-                                <div style={{ fontSize: '42px', fontWeight: '900', color: '#1d63ed' }}>{s.number}</div>
-                                <div style={{ fontSize: '14px', color: '#94a3b8', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{s.label}</div>
-                            </div>
-                        ))}
-                    </div>
+                <div style={{ 
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
+                    gap: '24px', 
+                    textAlign: 'center' 
+                }}>
+                    {stats.map((s, i) => (
+                        <div key={i} style={{ padding: '20px' }}>
+                            <div style={{ fontSize: 'clamp(32px, 4vw, 42px)', fontWeight: '900', color: '#1d63ed' }}>{s.number}</div>
+                            <div style={{ fontSize: '13px', color: '#94a3b8', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{s.label}</div>
+                        </div>
+                    ))}
+                </div>
                 </div>
             </section>
 
             {/* Product Overview */}
-            <section style={{ padding: '100px 0', background: 'white' }}>
+            <section style={{ padding: 'clamp(60px, 8vw, 100px) 0', background: 'white' }}>
                 <div className="max-container reveal">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+                    <div style={{ 
+                        display: 'grid', 
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+                        gap: 'clamp(40px, 6vw, 80px)', 
+                        alignItems: 'center' 
+                    }}>
                         <div>
                             <span style={{ display: 'inline-block', background: 'rgba(29,99,237,0.08)', color: '#1d63ed', padding: '6px 16px', borderRadius: '30px', fontWeight: '700', fontSize: '13px', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px' }}>What is VSDOX?</span>
                             <h2 style={{ fontSize: '44px', fontWeight: '900', lineHeight: '1.1', marginBottom: '24px', color: '#0f172a', letterSpacing: '-0.02em' }}>The Intelligent Heart of Your Document Operations</h2>
@@ -249,7 +265,11 @@ export const Products = () => {
                         <h2 style={{ fontSize: '44px', fontWeight: '900', color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.02em' }}>Everything You Need, In One Platform</h2>
                         <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '700px', margin: '0 auto', lineHeight: '1.7' }}>Six integrated modules that cover the entire content management lifecycle.</p>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '28px' }}>
+                    <div style={{ 
+                        display: 'grid', 
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+                        gap: '28px' 
+                    }}>
                         {coreModules.map((mod, i) => (
                             <div key={i} className="reveal" style={{
                                 background: 'white',
@@ -358,6 +378,11 @@ export const Solutions = () => {
     }, []);
     return (
         <>
+            <SEO
+                title="Enterprise ECM Solutions – Digitization, BPM & Automation | VSDOX"
+                description="VSDOX enterprise solutions include multimedia heritage digitization, native BPM process automation, and omnichannel content management for complex workflows."
+                keywords="enterprise document solutions, document digitization, BPM automation, heritage digitization, ECM solutions India"
+            />
             <PageHero
                 title="Enterprise Solutions"
                 subtitle="Solved challenges for complex organizational workflows."
@@ -397,6 +422,11 @@ export const Industries = () => {
     }, []);
     return (
         <>
+            <SEO
+                title="Industry-Specific ECM Solutions – BFSI, Govt, Judiciary, Healthcare | VSDOX"
+                description="VSDOX delivers tailored document management solutions for Banking & BFSI, Government, Judiciary, Healthcare, Corporate, and Education sectors across India."
+                keywords="industry DMS solutions, BFSI document management, government ECM, judiciary DMS, healthcare records management India"
+            />
             <PageHero
                 title="Industry-Specific Solutions"
                 subtitle="Tailored document strategies for every sector and scale."
@@ -568,6 +598,11 @@ export const Contact = () => {
 
     return (
         <>
+            <SEO
+                title="Contact Us – Reach VSDOX & Vir Softech ECM Experts | India"
+                description="Contact Vir Softech for VSDOX enterprise content management inquiries. Corporate office in Noida, India. International offices in Japan & USA. Email, phone & WhatsApp available."
+                keywords="contact VSDOX, Vir Softech contact, ECM support India, document management inquiry, DMS sales contact"
+            />
             <PageHero
                 title="Contact Us"
                 subtitle="Get in touch with our document management experts."
@@ -729,6 +764,11 @@ export const About = () => {
 
     return (
         <>
+            <SEO
+                title="About Vir Softech – India's Leading ECM & DMS Technology Company"
+                description="Vir Softech Pvt. Ltd. is an ISO 9001:2015 certified, CMMI Level 3 company delivering AI-powered document management solutions to 500+ clients globally since 1995."
+                keywords="Vir Softech, about VSDOX, ECM company India, DMS provider, ISO certified document management, CMMI Level 3"
+            />
             <PageHero
                 title="About Vir Softech"
                 subtitle="Business-led IT process transformation for a digital world."
