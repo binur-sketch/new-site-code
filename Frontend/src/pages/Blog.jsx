@@ -4,13 +4,10 @@ import { handleFormSubmission } from '../utils/formHandler';
 import { useAuth } from '../context/AuthContext';
 import AdminDashboard from './AdminDashboard';
 import { CompanyPageHero } from './CompanyPages';
-import { apiFetch } from '../services/apiClient';
-import { API_ENDPOINTS } from '../config/apiEndpoints';
-import { AUTH_STORAGE_KEYS, DEFAULTS } from '../config/appConstants';
+import { supabase } from '../lib/supabase';
+import { adminApi } from '../features/admin/api';
+import { DEFAULTS } from '../config/appConstants';
 import SEO from '../components/SEO';
-
-const getAuthToken = () => localStorage.getItem(AUTH_STORAGE_KEYS.token);
-const withAuth = () => ({ token: getAuthToken() });
 
 const normalizePosts = (res) => {
   if (Array.isArray(res)) return res;
@@ -43,7 +40,7 @@ const BlogCard = ({
   const handlePublish = async () => {
     setLoading(true);
     try {
-      await apiFetch('PATCH', API_ENDPOINTS.posts.publish(id), null, withAuth());
+      await adminApi.publishPost(id);
       onStatusChange(id, 'published');
     } catch (e) {
       alert(e.message);
@@ -54,7 +51,7 @@ const BlogCard = ({
   const handleWithdraw = async () => {
     setLoading(true);
     try {
-      await apiFetch('PATCH', API_ENDPOINTS.posts.withdraw(id), null, withAuth());
+      await adminApi.withdrawPost(id);
       onStatusChange(id, 'draft');
     } catch (e) {
       alert(e.message);
@@ -69,7 +66,7 @@ const BlogCard = ({
 
     setLoading(true);
     try {
-      await apiFetch('DELETE', API_ENDPOINTS.posts.adminById(id), null, withAuth());
+      await adminApi.deletePost(id);
       onDelete(id);
     } catch (e) {
       alert(e.message);
@@ -187,6 +184,7 @@ const Blog = () => {
   const [hasMore, setHasMore] = useState(false);
   const [adminMode, setAdminMode] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
+  const [dashboardView, setDashboardView] = useState('list');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -211,8 +209,16 @@ const Blog = () => {
     setLoading(true);
 
     try {
-      const pub = await apiFetch('GET', API_ENDPOINTS.posts.list(pageNum, 6));
-      const fetched = pub.posts || [];
+      const { data, error } = await supabase
+        .from('posts')
+        .select('*, categories(*)')
+        .eq('status', 'published')
+        .order('published_at', { ascending: false })
+        .range((pageNum - 1) * 6, pageNum * 6 - 1);
+
+      if (error) throw error;
+
+      const fetched = data || [];
       setPosts((prev) => (append ? [...prev, ...fetched] : fetched));
       setHasMore(fetched.length === 6);
 
@@ -227,8 +233,13 @@ const Blog = () => {
 
   const loadAllPostsForAdmin = async () => {
     try {
-      const res = await apiFetch('GET', API_ENDPOINTS.posts.adminAll(100), null, withAuth());
-      setAllPosts(normalizePosts(res));
+      const { data, error } = await supabase
+        .from('posts')
+        .select('*, categories(*)')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setAllPosts(data || []);
     } catch (e) {
       console.error('Failed to load admin posts:', e);
     }
@@ -291,7 +302,11 @@ const Blog = () => {
         <>
           <div onClick={() => setShowDashboard(false)} className="blog-dashboard-backdrop" />
           <div className="blog-dashboard-panel">
-            <AdminDashboard onClose={() => setShowDashboard(false)} />
+            <AdminDashboard 
+              onClose={() => setShowDashboard(false)} 
+              initialView={dashboardView} 
+              key={dashboardView} 
+            />
           </div>
         </>
       )}
@@ -313,7 +328,14 @@ const Blog = () => {
                   {adminMode && adminMode ? <i className="fas fa-toggle-on" aria-hidden="true"></i> : <i className="fas fa-toggle-off" aria-hidden="true"></i>}
                   {adminMode ? 'Admin Mode ON' : 'Admin Mode'}
                 </button>
-                <button onClick={() => setShowDashboard(true)} className="blog-control-btn"><i className="fas fa-tasks" aria-hidden="true"></i> Manage Post</button>
+                <button onClick={() => { setDashboardView('list'); setShowDashboard(true); }} className="blog-control-btn"><i className="fas fa-tasks" aria-hidden="true"></i> Manage Post</button>
+                <button 
+                  onClick={() => { setDashboardView('form'); setShowDashboard(true); }} 
+                  className="blog-control-btn blog-control-btn-primary"
+                  style={{ background: 'var(--primary)', color: 'white' }}
+                >
+                  <i className="fas fa-plus" aria-hidden="true"></i> New Post
+                </button>
               </div>
             </div>
           )}

@@ -46,11 +46,11 @@ const formatPost = (p) => ({
   tags: (p.tags || []).map((t) => ({ ...t, id: String(t.id) })),
 });
 
-const AdminDashboard = ({ onClose }) => {
-  const { user, canManageContent } = useAuth();
+const AdminDashboard = ({ onClose, initialView = 'list' }) => {
+  const { user, canManageContent, logout } = useAuth();
   const navigate = useNavigate();
 
-  const [view, setView] = useState('list');
+  const [view, setView] = useState(initialView);
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -182,12 +182,26 @@ const AdminDashboard = ({ onClose }) => {
       <header className="admin-dashboard-header">
         <img src={logo} alt="VSDOX – AI-Powered Enterprise Content Management Admin Dashboard" className="admin-dashboard-logo" />
         <strong>Blog Admin</strong>
-        <span className="admin-dashboard-user"><i className="fas fa-user" aria-hidden="true"></i> {user.name}</span>
-        {onClose && (
-          <button type="button" className="admin-btn admin-btn-ghost admin-btn-close" onClick={onClose} title="Close">
-            <i className="fas fa-xmark" aria-hidden="true"></i>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginLeft: 'auto' }}>
+          <span className="admin-dashboard-user"><i className="fas fa-user" aria-hidden="true"></i> {user.email || user.name}</span>
+          <button 
+            type="button" 
+            className="admin-btn admin-btn-ghost admin-btn-danger" 
+            onClick={async () => {
+              await logout();
+              if (onClose) onClose();
+              navigate('/blog');
+            }}
+            title="Log Out"
+          >
+            <i className="fas fa-right-from-bracket" aria-hidden="true"></i> Logout
           </button>
-        )}
+          {onClose && (
+            <button type="button" className="admin-btn admin-btn-ghost admin-btn-close" onClick={onClose} title="Close">
+              <i className="fas fa-xmark" aria-hidden="true"></i>
+            </button>
+          )}
+        </div>
       </header>
 
       <main className="admin-dashboard-content">

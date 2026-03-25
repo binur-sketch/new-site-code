@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { API_ENDPOINTS } from '../config/apiEndpoints';
-import { AUTH_STORAGE_KEYS } from '../config/appConstants';
-import { apiFetch, apiRequest } from '../services/apiClient';
+import { supabase } from '../lib/supabase';
 import sanitizeHtml from '../utils/sanitizeHtml';
 import SEO from '../components/SEO';
 
@@ -29,61 +27,49 @@ const BlogPost = () => {
       setNotFound(false);
 
       try {
-        const { response, data } = await apiRequest(
-          'GET',
-          API_ENDPOINTS.posts.bySlug(slug),
-          null,
-          { throwOnError: false },
-        );
+        let query = supabase
+          .from('posts')
+          .select('*, categories(*), tags(*)')
+          .eq('slug', slug);
 
-        if (response.status === 404) {
-          const adminToken = localStorage.getItem(AUTH_STORAGE_KEYS.token);
-          if (adminToken && canManageContent) {
-            const allPosts = await apiFetch('GET', API_ENDPOINTS.posts.adminAll(200), null, { token: adminToken });
-            const match = (allPosts.posts || []).find((p) => p.slug === slug);
+        // If not admin, only show published
+        if (!canManageContent) {
+          query = query.eq('status', 'published');
+        }
 
-            if (match) {
-              const preview = await apiFetch(
-                'GET',
-                API_ENDPOINTS.posts.adminPreview(match.id),
-                null,
-                { token: adminToken },
-              );
-              setPost(preview);
-              setLoading(false);
-              return;
-            }
-          }
+        const { data, error } = await query.single();
 
+        if (error || !data) {
           setNotFound(true);
-          setLoading(false);
           return;
         }
 
-        setPost(data);
-      } catch {
+        setPost({
+          ...data,
+          category: data.categories?.[0]?.name || 'General',
+          date: data.published_at 
+            ? new Date(data.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            : 'Draft'
+        });
+      } catch (err) {
+        console.error('BlogPost load error:', err);
         setNotFound(true);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     };
 
     loadPost();
   }, [slug, canManageContent]);
 
-  const token = () => localStorage.getItem(AUTH_STORAGE_KEYS.token);
-
   const handleWithdraw = async () => {
-    if (!canManageContent) {
-      return;
-    }
-    if (!window.confirm('Withdraw this post back to draft?')) {
-      return;
-    }
+    if (!canManageContent) return;
+    if (!window.confirm('Withdraw this post back to draft?')) return;
 
     setActionLoading(true);
     try {
-      await apiFetch('PATCH', API_ENDPOINTS.posts.withdraw(post.id), null, { token: token() });
+      const { error } = await supabase.from('posts').update({ status: 'draft' }).eq('id', post.id);
+      if (error) throw error;
       navigate('/blog');
     } catch (e) {
       alert(e.message);
@@ -92,16 +78,13 @@ const BlogPost = () => {
   };
 
   const handleDelete = async () => {
-    if (!canManageContent) {
-      return;
-    }
-    if (!window.confirm(`Delete "${post.title}"? This cannot be undone.`)) {
-      return;
-    }
+    if (!canManageContent) return;
+    if (!window.confirm(`Delete "${post.title}"? This cannot be undone.`)) return;
 
     setActionLoading(true);
     try {
-      await apiFetch('DELETE', API_ENDPOINTS.posts.adminById(post.id), null, { token: token() });
+      const { error } = await supabase.from('posts').delete().eq('id', post.id);
+      if (error) throw error;
       navigate('/blog');
     } catch (e) {
       alert(e.message);
@@ -175,7 +158,7 @@ const BlogPost = () => {
                 />
                 <div>
                   <div className="blog-post-author-name">{post.author}</div>
-                  <div className="blog-post-author-role">{post.authorRole}</div>
+                  <div className="blog-post-author-role">{post.author_role}</div>
                 </div>
               </div>
 
@@ -257,7 +240,7 @@ const BlogPost = () => {
                 />
                 <div>
                   <div className="blog-post-author-card-name">{post.author}</div>
-                  <div className="blog-post-author-card-role">{post.authorRole}</div>
+                  <div className="blog-post-author-card-role">{post.author_role}</div>
                   <p className="blog-post-author-card-text">
                     Expert at VSDox in enterprise document management and digital transformation.
                   </p>

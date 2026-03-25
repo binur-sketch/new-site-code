@@ -284,11 +284,11 @@ const AdminPostForm = ({
       excerpt,
       body,
       author: post?.author || 'VSDox Team',
-      authorRole: post?.authorRole || '',
+      author_role: post?.author_role || '',
       status: finalStatus,
       scheduled_at: normalizedScheduledAt,
-      featured_image: image,
-      category_ids: selectedCategories,
+      image: image,
+      categories: selectedCategories,
     };
 
     try {

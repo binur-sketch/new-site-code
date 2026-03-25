@@ -147,6 +147,10 @@ const Navbar = () => {
                         <div
                             className="user-dropdown"
                             style={{ display: userMenuOpen ? "block" : "none" }}>
+                            <Link to="/admin" className="user-dropdown-item" style={{ color: 'var(--text-dark)', textDecoration: 'none' }} onClick={() => setUserMenuOpen(false)}>
+                                <i className="fas fa-gauge"></i> Dashboard
+                            </Link>
+                            <hr style={{ margin: '4px 0', border: 'none', borderTop: '1px solid var(--border)' }} />
                             <button onClick={handleLogout} className="user-dropdown-item">
                                 <i className="fas fa-sign-out-alt"></i> Logout
                             </button>
@@ -211,6 +215,17 @@ const Navbar = () => {
                                     <div style={{ fontSize: '11px', opacity: 0.6, color: 'inherit' }}>{user.role}</div>
                                 </div>
                             </div>
+                            <Link
+                                to="/admin"
+                                className="mobile-menu-link"
+                                onClick={closeMenu}
+                                style={{
+                                    display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--primary)',
+                                    textDecoration: 'none', fontWeight: '700', marginBottom: '8px', padding: '10px 16px'
+                                }}
+                            >
+                                <i className="fas fa-gauge"></i> Admin Dashboard
+                            </Link>
                             <button
                                 onClick={handleLogout}
                                 className="mobile-menu-link"

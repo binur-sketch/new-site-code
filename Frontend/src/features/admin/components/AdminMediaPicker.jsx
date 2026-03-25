@@ -28,17 +28,6 @@ const AdminMediaPicker = ({ onSelect, onClose }) => {
       const res = await adminApi.listMedia(60);
       const items = Array.isArray(res) ? res : res?.media ?? res?.data ?? [];
       setMedia(items);
-
-      const usage = {};
-      await Promise.all(items.map(async (item) => {
-        try {
-          const used = await adminApi.mediaUsage(item.id);
-          if (used?.in_use) usage[item.id] = used.used_in;
-        } catch {
-          // Ignore per-file usage failures.
-        }
-      }));
-      setUsageMap(usage);
     } catch (error) {
       setMessage(error.message || 'Failed to load media');
     } finally {
@@ -79,9 +68,7 @@ const AdminMediaPicker = ({ onSelect, onClose }) => {
 
     setUploading(true);
     try {
-      const fd = new FormData();
-      fd.append('image', stagedFile);
-      const uploaded = await adminApi.uploadMedia(fd);
+      const uploaded = await adminApi.uploadMedia(stagedFile);
       setMedia((prev) => [uploaded, ...prev]);
       setStagedFile(null);
       setMessage('Image uploaded');
@@ -97,13 +84,7 @@ const AdminMediaPicker = ({ onSelect, onClose }) => {
 
   const handleDelete = async (item, event) => {
     event.stopPropagation();
-    if (usageMap[item.id]?.length) {
-      setMessage('This image is in use by posts and cannot be deleted');
-      return;
-    }
-
     if (!window.confirm('Delete this image permanently?')) return;
-
     try {
       await adminApi.deleteMedia(item.id);
       setMedia((prev) => prev.filter((x) => x.id !== item.id));

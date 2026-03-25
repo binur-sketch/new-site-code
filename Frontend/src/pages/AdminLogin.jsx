@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { API_ENDPOINTS } from '../config/apiEndpoints';
+import { supabase } from '../lib/supabase';
 import { DEFAULTS } from '../config/appConstants';
-import { apiFetch } from '../services/apiClient';
 import logo from '../logo.png';
 
 const AdminLogin = () => {
@@ -30,8 +29,7 @@ const AdminLogin = () => {
     setError('');
 
     try {
-      const data = await apiFetch('POST', API_ENDPOINTS.auth.login, { email, password });
-      login(data.user, data.token, data.session_token);
+      await login(email, password);
       navigate('/blog');
     } catch (err) {
       setError(err.message || 'Login failed');
@@ -50,14 +48,11 @@ const AdminLogin = () => {
     setForgotInfo('');
 
     try {
-      const payload = await apiFetch('POST', API_ENDPOINTS.auth.forgotPassword, { email: trimmedEmail });
-      const expires = payload?.expires_at;
-      setResetToken('');
-      if (expires) {
-        setForgotInfo(`Token expires ${new Date(expires).toLocaleString()}`);
-      } else {
-        setForgotInfo('If the email exists, you will receive password reset instructions shortly.');
-      }
+      const { error } = await supabase.auth.resetPasswordForEmail(trimmedEmail, {
+        redirectTo: window.location.origin + '/admin/login?mode=reset',
+      });
+      if (error) throw error;
+      setForgotInfo('If the email exists, you will receive password reset instructions shortly.');
     } catch (err) {
       setForgotInfo(err.message || 'Failed to request reset token');
     } finally {
@@ -66,20 +61,16 @@ const AdminLogin = () => {
   };
 
   const handleResetPassword = async () => {
-    if (!resetToken.trim()) {
-      setForgotInfo('Enter the reset token you received.');
-      return;
-    }
     if (!forgotPassword || !forgotConfirm) {
       setForgotInfo('Provide and confirm the new password.');
       return;
     }
     if (forgotPassword !== forgotConfirm) {
-      setForgotInfo('New passwords do not match.');
+      setForgotInfo('Passwords do not match.');
       return;
     }
     if (forgotPassword.length < 8) {
-      setForgotInfo('Password must be at least 8 characters long.');
+      setForgotInfo('Password must be at least 8 characters.');
       return;
     }
 
@@ -87,19 +78,14 @@ const AdminLogin = () => {
     setForgotInfo('');
 
     try {
-      await apiFetch('POST', API_ENDPOINTS.auth.resetPassword, {
-        token: resetToken.trim(),
-        password: forgotPassword,
-      });
-      setForgotInfo('Password reset successfully. You can now sign in.');
+      const { error } = await supabase.auth.updateUser({ password: forgotPassword });
+      if (error) throw error;
+      setForgotInfo('Password updated successfully. You can now sign in.');
       setMode('login');
       setForgotPassword('');
       setForgotConfirm('');
-      setResetToken('');
-      setForgotEmail('');
-      setError('');
     } catch (err) {
-      setForgotInfo(err.message || 'Failed to reset password');
+      setForgotInfo(err.message || 'Failed to update password');
     } finally {
       setResetLoading(false);
     }
