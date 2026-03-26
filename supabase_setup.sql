@@ -16,6 +16,8 @@ CREATE TABLE posts (
   views int DEFAULT 0,
   reading_time int DEFAULT 0,
   published_at timestamp with time zone,
+  scheduled_at timestamp with time zone,
+  scheduled_at_local text,
   created_at timestamp with time zone DEFAULT now(),
   updated_at timestamp with time zone DEFAULT now()
 );

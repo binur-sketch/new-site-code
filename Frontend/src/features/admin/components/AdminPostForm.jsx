@@ -283,10 +283,12 @@ const AdminPostForm = ({
       slug: derivedSlug,
       excerpt,
       body,
+      body_html: previewHtml,
       author: post?.author || 'VSDox Team',
       author_role: post?.author_role || '',
       status: finalStatus,
       scheduled_at: normalizedScheduledAt,
+      scheduled_at_local: scheduledAt,
       image: image,
       categories: selectedCategories,
     };

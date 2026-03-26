@@ -6035,6 +6035,12 @@ img {
   background: rgba(255, 255, 255, 0.08);
   color: white;
   border-color: rgba(255, 255, 255, 0.14);
+  transition: all 0.2s ease;
+}
+
+.admin-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .admin-btn-close:hover {
@@ -6055,6 +6061,13 @@ img {
   background: #fef2f2;
   color: #dc2626;
   border-color: #fecaca;
+  transition: all 0.2s ease;
+}
+
+.admin-btn-danger:hover {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
 }
 
 .admin-btn:disabled {
@@ -6064,6 +6077,32 @@ img {
 
 .admin-inline-btn {
   margin-top: 8px;
+}
+
+/* Dashboard Header Logout Fix */
+.admin-dashboard-header .admin-btn-ghost.admin-btn-danger {
+  background: rgba(254, 202, 202, 0.15);
+  color: #ffcccc;
+  border: 1px solid rgba(254, 202, 202, 0.35);
+  font-weight: 800;
+  padding: 8px 16px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.admin-dashboard-header .admin-btn-ghost.admin-btn-danger:hover {
+  background: #ff4d4d;
+  color: #ffffff;
+  border-color: #ff4d4d;
+  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+  transform: translateY(-1px);
+}
+
+.admin-dashboard-header .admin-btn-ghost.admin-btn-danger:active {
+  background: #cc0000;
+  color: #ffffff;
+  border-color: #cc0000;
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .admin-featured-image-block {

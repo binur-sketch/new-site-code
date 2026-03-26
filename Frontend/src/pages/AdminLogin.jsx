@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { supabase } from '../lib/supabase';
@@ -23,6 +23,16 @@ const AdminLogin = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const m = params.get('mode');
+    if (m === 'reset' || m === 'forgot') {
+      setMode('forgot');
+    }
+  }, []);
+
+  const adminEmailPlaceholder = import.meta.env.VITE_ADMIN_EMAIL || 'admin@virsoftech.com';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -30,9 +40,11 @@ const AdminLogin = () => {
 
     try {
       await login(email, password);
-      navigate('/blog');
+      // Wait a moment for auth state to propagate before navigating
+      setTimeout(() => navigate('/blog'), 100);
     } catch (err) {
-      setError(err.message || 'Login failed');
+      console.error('Login attempt failed:', err);
+      setError(err.message || 'Login failed. Check your credentials and environment variables.');
     } finally {
       setLoading(false);
     }
@@ -131,7 +143,7 @@ const AdminLogin = () => {
                 <label>Email</label>
                 <input
                   type="email"
-                  placeholder="admin@vsdox.com"
+                  placeholder={adminEmailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -188,7 +200,7 @@ const AdminLogin = () => {
                 type="email"
                 value={forgotEmail}
                 onChange={(e) => setForgotEmail(e.target.value)}
-                placeholder="admin@vsdox.com"
+                placeholder={adminEmailPlaceholder}
                 autoComplete="off"
               />
               </div>
