@@ -66,7 +66,7 @@ const Footer = () => {
                         <ul className="contact-info-list">
                             <li>
                                 <span className="info-icon"><i className="fas fa-location-dot"></i></span>
-                                <span>{COMPANY.name}<br />A 306, The I Thum, Plot No. A 40,<br />Sector 62, Noida, India</span>
+                                <span>{COMPANY.name}<br />A 306, The I Thum, Plot No.<br /> A 40,Sector 62, Noida, India</span>
                             </li>
                             <li>
                                 <span className="info-icon"><i className="fas fa-envelope"></i></span>

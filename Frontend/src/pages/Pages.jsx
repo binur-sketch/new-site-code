@@ -644,7 +644,7 @@ export const Contact = () => {
                     <div className="contact-info-boxes">
                         <div className="contact-box glass-card">
                             <h4>Corporate Office (HQ)</h4>
-                            <p>Vir Softech Pvt. Ltd.<br />A 306, The I Thum, Plot No. A 40, Sector 62, Noida, UP, India</p>
+                            <p>Vir Softech Pvt. Ltd.<br />A 306, The I Thum, Plot No. A 40,Sector 62, Noida, UP, India</p>
                         </div>
                         <div className="contact-box glass-card">
                             <h4>International Offices</h4>
@@ -655,9 +655,9 @@ export const Contact = () => {
                             <h4>Phone & Email</h4>
                             <div className="contact-details">
                                 <p><strong>Toll-Free:</strong> <a href={LINKS.telTollFree}>{APP_CONTACT.tollFree}</a></p>
-                                <p><strong>WhatsApp:</strong> 
+                                <p><strong>WhatsApp:</strong>
                                     <span style={{ marginLeft: '5px' }}>
-                                        <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">+{APP_CONTACT.whatsappCountryCode} {APP_CONTACT.whatsapp}</a>, 
+                                        <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">+{APP_CONTACT.whatsappCountryCode} {APP_CONTACT.whatsapp}</a>,
                                         <a href={LINKS.whatsapp2} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}>{APP_CONTACT.whatsapp2}</a>
                                     </span>
                                 </p>
