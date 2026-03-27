@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { handleFormSubmission } from '../utils/formHandler';
 import { APP_CONTACT, DEFAULTS, LINKS } from '../config/appConstants';
 import SEO from '../components/SEO';
-
+import MilestoneTimeline from '../components/MilestoneTimeline';
 
 import teamBanner from '../assets/team-member.jpeg';
 import dashboardImg from '../assets/dashboard.png';
