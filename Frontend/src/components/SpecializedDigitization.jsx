@@ -54,7 +54,7 @@ const SpecializedDigitization = () => {
 
                 <div className="digitization-formats-grid" style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
                     gap: '30px'
                 }}>
                     {categories.map((item, idx) => (

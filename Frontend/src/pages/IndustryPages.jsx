@@ -46,11 +46,11 @@ const PageHero = ({ title, subtitle, tag, bgColor, bgImage }) => (
 const StatsStrip = ({ stats }) => (
     <div className="trust-full-width-strip">
         <div className="max-container">
-            <div style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
-                gap: '20px', 
-                textAlign: 'center' 
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(240px, 100%), 1fr))',
+                gap: '20px',
+                textAlign: 'center'
             }}>
                 {stats.map((s, i) => (
                     <div key={i} style={{ padding: '20px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px' }}>
@@ -80,11 +80,11 @@ const FeatureGrid = ({ features }) => (
 const BenefitsList = ({ benefits, title, desc }) => (
     <section style={{ padding: '100px 0', background: '#f8fafc' }}>
         <div className="max-container">
-            <div style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
-                alignItems: 'center', 
-                gap: 'clamp(40px, 5vw, 80px)' 
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px, 100%), 1fr))',
+                alignItems: 'center',
+                gap: 'clamp(40px, 5vw, 80px)'
             }}>
                 <div className="reveal">
                     <span className="info-tag">Key Outcomes</span>
@@ -167,9 +167,9 @@ export const BankingBFSI = () => {
                         { icon: 'fa-file-invoice', title: 'Loan & Mortgage Processing', desc: 'Automate document ingestion, indexing, and verification for retail and commercial lending workflows.' },
                         { icon: 'fa-shield-halved', title: 'Regulatory Compliance', desc: 'Built-in audit trails, retention policies, and access controls aligned with RBI, SEBI, and IRDAI guidelines.' },
                         { icon: 'fa-address-card', title: 'KYC & Account Opening', desc: 'Digitize KYC, form handling, and new account onboarding with intelligent data extraction from IDs.' },
-                        { icon: 'fa-file-contract', title: 'Insurance Policy Management', desc: 'Manage new policies, endorsements, claims documents, and service requests in one unified repository.' },
+                        { icon: 'fa-file-contract', title: 'Insurance & Policy Lifecycle', desc: 'Comprehensive management of policy issuance, endorsements, and claims with automated renewal tracking.' },
                         { icon: 'fa-magnifying-glass-chart', title: 'Headless DMS', desc: 'Documents are stored and controlled centrally in the DMS, while customers use their own custom front-end (web portal, mobile app, ERP, etc.) to fetch and display document data via secure APIs. ' },
-                        { icon: 'fa-lock', title: 'AES-256 Encrypted Vault', desc: 'Bank-grade encryption, multi-factor authentication, and role-based data access for maximum security.' },
+                        { icon: 'fa-lock', title: 'Security', desc: 'State-of-the-art encryption, multi-factor authentication, and robust role-based access for maximum data protection.' },
                     ]} />
                 </div>
             </section>
@@ -190,7 +190,7 @@ export const BankingBFSI = () => {
                     <div style={{ textAlign: 'center', marginBottom: '50px' }}>
                         <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '800' }}>Use Cases Across BFSI</h2>
                     </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))', gap: '24px' }}>
                         {['Retail Banking: Account opening forms, KYC, credit cards', 'Commercial Lending: Loan origination, collateral, risk docs', 'Insurance: Claims, policy servicing, underwriting files', 'Investment Banking: Trade confirmations, mandates, reports', 'NBFCs: Microfinance application & disbursement records', 'Pension Fund Management: NPS onboarding, contribution & workflow automation', 'Compliance: CERSAI, CKYC, RBI audit documentation'].map((uc, i) => (
                             <div key={i} className="feature-v3-card">
                                 <i className="fas fa-check-circle" style={{ color: 'var(--primary)', marginBottom: '12px', display: 'block' }}></i>
@@ -276,9 +276,9 @@ export const Corporate = () => {
     return (
         <>
             <SEO
-                title="Corporate ECM – Document Control for Manufacturing & Corporate Enterprises | VSDOX"
-                description="VSDOX provides smart document control for corporate, manufacturing and engineering firms. Version control, QMS, ERP integration & compliance automation."
-                keywords="corporate document management, manufacturing DMS, engineering document control, ECM corporate India, QMS document management"
+                title="Corporate ECM – Document Management for Finance, HR & Enterprise | VSDOX"
+                description="VSDOX provides smart document management for corporate, finance, and HR departments. Version control, ERP integration, and secure employee records."
+                keywords="corporate document management, finance DMS, HR document management, employee records DMS, enterprise ECM India, payroll document management"
             />
             <PageHero
                 tag="INDUSTRY SOLUTION · Corporate"
@@ -298,26 +298,26 @@ export const Corporate = () => {
                 <div className="max-container">
                     <div style={{ textAlign: 'center', marginBottom: '60px' }} className="reveal">
                         <span className="info-tag" style={{ background: 'rgba(29,99,237,0.15)', color: '#60a5fa', border: '1px solid rgba(29,99,237,0.2)' }}>Platform Capabilities</span>
-                        <h2 style={{ fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: '800', color: 'white', margin: '20px 0' }}>Engineering & Manufacturing Document Control</h2>
-                        <p style={{ color: '#94a3b8', maxWidth: '700px', margin: '0 auto', fontSize: '17px' }}>From BOMs and CAD drawings to quality certifications, manage every document in a structured, version-controlled environment.</p>
+                        <h2 style={{ fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: '800', color: 'white', margin: '20px 0' }}>Enterprise & Corporate Document Management</h2>
+                        <p style={{ color: '#94a3b8', maxWidth: '700px', margin: '0 auto', fontSize: '17px' }}>From CAD drawings and BOMs to Finance and HR records, manage every business document in a structured, secure, and version-controlled environment.</p>
                     </div>
                     <FeatureGrid features={[
                         { icon: 'fa-drafting-compass', title: 'Engineering Document Control', desc: 'Version-controlled repository for CAD drawings, BOMs, manuals, and specifications with change-history tracking.' },
-                        { icon: 'fa-certificate', title: 'Quality Management (QMS)', desc: 'Manage ISO 9001 and AS9100 documentation with automated review and approval workflows.' },
+                        { icon: 'fa-file-invoice-dollar', title: 'Finance & Accounts', desc: 'Digitize invoices, tax records, and financial statements with automated approval workflows and ERP syncing.' },
                         { icon: 'fa-truck', title: 'Supply Chain Documentation', desc: 'Centralize vendor agreements, purchase orders, certificates of conformance, and material test reports.' },
                         { icon: 'fa-gears', title: 'Maintenance Records (CMMS)', desc: 'Digital maintenance logs, SOP management, and equipment history for preventive and predictive maintenance.' },
-                        { icon: 'fa-clipboard-check', title: 'Compliance & Audit Readiness', desc: 'Always-audit-ready documentation with automated compliance checks and complete traceability.' },
+                        { icon: 'fa-users-gear', title: 'HR Dept & Payroll', desc: 'Secure management of employee records, onboarding documents, and orientation materials with restricted access.' },
                         { icon: 'fa-rotate', title: 'ERP & PLM Integration', desc: 'Seamless integration with SAP, Oracle, and Siemens PLM for unified data across your enterprise.' },
                     ]} />
                 </div>
             </section>
 
             <BenefitsList
-                title="Drive Operational Excellence on the Shop Floor"
-                desc="Leading manufacturers trust VSDOX to maintain product quality, reduce downtime, and pass audits with confidence."
+                title="Drive Operational Excellence Across Your Enterprise"
+                desc="Leading companies trust VSDOX to maintain operational efficiency, secure sensitive data, and streamline inter-departmental workflows."
                 benefits={[
-                    { icon: 'fa-code-branch', title: 'Version Control & Change Management', desc: 'Never use an outdated drawing again. Enforce controlled document distribution.' },
-                    { icon: 'fa-triangle-exclamation', title: 'ISO Compliance', desc: 'Out-of-the-box support for ISO 9001, and other international quality standards.' },
+                    { icon: 'fa-code-branch', title: 'Version Control & Change Management', desc: 'Never use an outdated document again. Enforce controlled distribution for drawings and manuals.' },
+                    { icon: 'fa-user-shield', title: 'Data Privacy & PII Protection', desc: 'Bank-grade security and role-based access to protect sensitive HR and financial information.' },
                     { icon: 'fa-file-circle-check', title: 'Digital Work Instructions', desc: 'Deliver the right work instruction to the right operator at the right station, digitally.' },
                     { icon: 'fa-plug', title: 'ERP-Connected Document Flow', desc: 'Link documents to SAP production orders, materials, and assets for full traceability.' },
                 ]}
@@ -383,19 +383,6 @@ export const Education = () => {
                     { icon: 'fa-lock-open', title: 'No Proprietary Licensing Costs', desc: 'Open-source based platform eliminates expensive per-seat licensing for your institution.' },
                 ]}
             />
-
-            <section style={{ padding: '80px 0', background: 'white' }} className="reveal">
-                <div className="max-container" style={{ textAlign: 'center' }}>
-                    <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '800', marginBottom: '16px' }}>Trusted by India's Premier Institutions</h2>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '48px', fontSize: '17px' }}>Including IIT Delhi, AIIMS New Delhi, and leading High Courts</p>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
-                        {['IIT Delhi', 'AIIMS New Delhi', 'National Archives', 'IIC Delhi'].map((name, i) => (
-                            <div key={i} style={{ background: '#f8fafc', border: '1px solid var(--border)', borderRadius: '12px', padding: '16px 28px', fontWeight: '700', color: 'var(--text-dark)' }}>{name}</div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             <CTABanner title="Preserve & Unlock Your Institution's Knowledge" subtitle="Build a world-class digital repository that serves students, researchers, and the public." />
 
         </>
@@ -457,19 +444,6 @@ export const Government = () => {
                     { icon: 'fa-infinity', title: 'Built for Scale', desc: 'Handles hundreds of terabytes and millions of concurrent document transactions.' },
                 ]}
             />
-
-            <section style={{ padding: '80px 0', background: 'white' }} className="reveal">
-                <div className="max-container" style={{ textAlign: 'center' }}>
-                    <h2 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '800', marginBottom: '16px' }}>Government Clients We Are Proud To Serve</h2>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '48px', fontSize: '17px' }}>Trusted by the Judiciary, National Institutions & State Governments</p>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
-                        {['Indian Patent Office', 'National Archives', 'Odisha High Court', 'Allahabad High Court', 'Madras High Court', 'Rajasthan High Court', 'Kerala High Court', 'Govt of Maharashtra'].map((name, i) => (
-                            <div key={i} style={{ background: '#f8fafc', border: '1px solid var(--border)', borderRadius: '12px', padding: '14px 24px', fontWeight: '700', color: 'var(--text-dark)', fontSize: '14px' }}>{name}</div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             <CTABanner title="Partner With Us for a Digital Government" subtitle="Join India's leading government institutions in the digital transformation journey with VSDOX." />
 
         </>

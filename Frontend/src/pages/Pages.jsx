@@ -5,8 +5,8 @@ import { APP_CONTACT, DEFAULTS, LINKS } from '../config/appConstants';
 import SEO from '../components/SEO';
 
 
-import MilestoneTimeline from '../components/MilestoneTimeline';
 import teamBanner from '../assets/team-member.jpeg';
+import dashboardImg from '../assets/dashboard.png';
 
 const PageHero = ({ title, subtitle, bgImage }) => (
     <section className="page-hero-container" style={{
@@ -204,30 +204,30 @@ export const Products = () => {
             {/* Stats Strip */}
             <section style={{ background: '#0f172a', padding: '40px 0' }}>
                 <div className="max-container">
-                <div style={{ 
-                    display: 'grid', 
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
-                    gap: '24px', 
-                    textAlign: 'center' 
-                }}>
-                    {stats.map((s, i) => (
-                        <div key={i} style={{ padding: '20px' }}>
-                            <div style={{ fontSize: 'clamp(32px, 4vw, 42px)', fontWeight: '900', color: '#1d63ed' }}>{s.number}</div>
-                            <div style={{ fontSize: '13px', color: '#94a3b8', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{s.label}</div>
-                        </div>
-                    ))}
-                </div>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                        gap: '24px',
+                        textAlign: 'center'
+                    }}>
+                        {stats.map((s, i) => (
+                            <div key={i} style={{ padding: '20px' }}>
+                                <div style={{ fontSize: 'clamp(32px, 4vw, 42px)', fontWeight: '900', color: '#1d63ed' }}>{s.number}</div>
+                                <div style={{ fontSize: '13px', color: '#94a3b8', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', marginTop: '4px' }}>{s.label}</div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
             {/* Product Overview */}
             <section style={{ padding: 'clamp(60px, 8vw, 100px) 0', background: 'white' }}>
                 <div className="max-container reveal">
-                    <div style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
-                        gap: 'clamp(40px, 6vw, 80px)', 
-                        alignItems: 'center' 
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px, 100%), 1fr))',
+                        gap: 'clamp(40px, 6vw, 80px)',
+                        alignItems: 'center'
                     }}>
                         <div>
                             <span style={{ display: 'inline-block', background: 'rgba(29,99,237,0.08)', color: '#1d63ed', padding: '6px 16px', borderRadius: '30px', fontWeight: '700', fontSize: '13px', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px' }}>What is VSDOX?</span>
@@ -246,7 +246,7 @@ export const Products = () => {
                         </div>
                         <div style={{ position: 'relative' }}>
                             <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 40px 80px -20px rgba(0,0,0,0.2)', border: '1px solid #e2e8f0' }}>
-                                <img src="./src/assets/dashboard.png" alt="VSDOX AI-Powered Enterprise Content Management Dashboard Interface" style={{ width: '100%', height: '420px', objectFit: 'cover' }} />
+                                <img src={dashboardImg} alt="VSDOX AI-Powered Enterprise Content Management Dashboard Interface" style={{ width: '100%', height: '420px', objectFit: 'cover' }} />
                             </div>
                             <div style={{ position: 'absolute', bottom: '-24px', left: '-24px', background: '#1d63ed', color: 'white', padding: '20px 28px', borderRadius: '16px', boxShadow: '0 10px 30px rgba(29,99,237,0.4)' }}>
                                 <div style={{ fontSize: '28px', fontWeight: '900' }}>200M+</div>
@@ -265,10 +265,10 @@ export const Products = () => {
                         <h2 style={{ fontSize: '44px', fontWeight: '900', color: '#0f172a', marginBottom: '16px', letterSpacing: '-0.02em' }}>Everything You Need, In One Platform</h2>
                         <p style={{ fontSize: '18px', color: '#64748b', maxWidth: '700px', margin: '0 auto', lineHeight: '1.7' }}>Six integrated modules that cover the entire content management lifecycle.</p>
                     </div>
-                    <div style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-                        gap: '28px' 
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))',
+                        gap: '28px'
                     }}>
                         {coreModules.map((mod, i) => (
                             <div key={i} className="reveal" style={{
@@ -655,8 +655,12 @@ export const Contact = () => {
                             <h4>Phone & Email</h4>
                             <div className="contact-details">
                                 <p><strong>Toll-Free:</strong> <a href={LINKS.telTollFree}>{APP_CONTACT.tollFree}</a></p>
-                                <p><strong>Landline:</strong> <a href={LINKS.telLandline}>{APP_CONTACT.landline}</a></p>
-                                <p><strong>WhatsApp:</strong> <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">{APP_CONTACT.whatsapp}</a></p>
+                                <p><strong>WhatsApp:</strong> 
+                                    <span style={{ marginLeft: '5px' }}>
+                                        <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">+{APP_CONTACT.whatsappCountryCode} {APP_CONTACT.whatsapp}</a>, 
+                                        <a href={LINKS.whatsapp2} target="_blank" rel="noopener noreferrer" style={{ marginLeft: '5px' }}>{APP_CONTACT.whatsapp2}</a>
+                                    </span>
+                                </p>
                                 <p><strong>Email:</strong> <a href={LINKS.mailToRecipient}>{APP_CONTACT.recipientEmail}</a></p>
                             </div>
                         </div>

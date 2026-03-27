@@ -540,7 +540,11 @@ const AdminPostForm = ({
         />
         <CreateChipField
           type="category"
-          onCreated={(item) => setCategories((prev) => [...prev, item])}
+          onCreated={(item) => {
+            const id = String(item.id);
+            setCategories((prev) => [...prev, item]);
+            setSelectedCategories((prev) => [...new Set([...prev, id])]);
+          }}
         />
 
         <div className="admin-form-actions">

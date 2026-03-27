@@ -157,10 +157,14 @@ const RequestDemo = () => {
                                         <i className="fas fa-phone" style={{ width: '20px' }}></i>
                                         {APP_CONTACT.tollFree} (Toll Free)
                                     </a>
-                                    <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#25D366', textDecoration: 'none', fontSize: '15px', fontWeight: '600' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#25D366', fontSize: '15px', fontWeight: '600' }}>
                                         <i className="fab fa-whatsapp" style={{ width: '20px' }}></i>
-                                        WhatsApp: +{APP_CONTACT.whatsappCountryCode} {APP_CONTACT.whatsapp}
-                                    </a>
+                                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                                            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', textDecoration: 'none' }}>+{APP_CONTACT.whatsappCountryCode} {APP_CONTACT.whatsapp}</a>
+                                            <span style={{ color: 'rgba(255,255,255,0.4)' }}>,</span>
+                                            <a href={LINKS.whatsapp2} target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', textDecoration: 'none' }}>{APP_CONTACT.whatsapp2}</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', gap: '12px' }}>
                                     <Link to="/contact" style={{ flex: 1, textAlign: 'center', background: '#1d63ed', color: 'white', padding: '12px', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '14px' }}>Contact Us</Link>
@@ -314,7 +318,7 @@ const RequestDemo = () => {
                         <p style={{ color: '#94a3b8', fontSize: '13px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '2px' }}>Trusted by Leaders Across Sectors</p>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
-                        {['Government Ministries', 'High Courts', 'Banking & BFSI', 'Healthcare Institutions', 'Universities & Archives', 'Presidential Estate'].map((org, i) => (
+                        {['Government Ministries', 'High Courts', 'Banking & BFSI', 'Healthcare', 'Judiciary', 'Corporate'].map((org, i) => (
                             <span key={i} style={{ color: '#475569', fontWeight: '700', fontSize: '14px', padding: '8px 20px', border: '1px solid #1e293b', borderRadius: '30px' }}>{org}</span>
                         ))}
                     </div>

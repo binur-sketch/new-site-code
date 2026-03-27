@@ -1,6 +1,7 @@
 import React from 'react';
 import hdfcLife from '../assets/hdfclife.png';
 import abHousing from '../assets/ABHFL_OG.png';
+import sbiLogo from '../assets/sbi_logo.jpg';
 import heroMoto from '../assets/Hero_MotoCorp-Logo.wine.svg';
 import religare from '../assets/Religare-Broking-Ltd..jpg';
 import subros from '../assets/subroshlogo.jpg';
@@ -38,6 +39,7 @@ const baseClients = [
     { name: "Aditya Birla Housing Finance Limited", logo: abHousing },
     { name: "Union Trust of India", logo: uti },
     { name: "Life Insurance Corporation", logo: lic },
+    { name: "State Bank of India (SBI)", logo: sbiLogo },
     { name: "Utkarsh Small Finance Bank", logo: utkarsh },
     { name: "Hero MotoCorp Ltd.", logo: heroMoto },
     { name: "Religare Broking Ltd.", logo: religare },

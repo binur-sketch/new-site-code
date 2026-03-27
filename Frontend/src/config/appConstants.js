@@ -25,15 +25,15 @@ export const APP_CONTACT = {
   recipientEmail: getEnv('VITE_CONTACT_EMAIL', 'corp@virsoftech.com'),
   supportEmail: getEnv('VITE_CONTACT_SUPPORT_EMAIL', 'support@virsoftech.com'),
   tollFree: getEnv('VITE_CONTACT_TOLL_FREE', '18005717711'),
-  landline: getEnv('VITE_CONTACT_LANDLINE', '0120 - 4325 497'),
-  whatsapp: getEnv('VITE_CONTACT_WHATSAPP', '9319086751'),
+  whatsapp: getEnv('VITE_CONTACT_WHATSAPP', '9871258989'),
+  whatsapp2: getEnv('VITE_CONTACT_WHATSAPP2', '9315152290'),
   whatsappCountryCode: getEnv('VITE_CONTACT_WHATSAPP_COUNTRY_CODE', '91'),
 };
 
 export const LINKS = {
   whatsapp: `https://wa.me/${APP_CONTACT.whatsappCountryCode}${digitsOnly(APP_CONTACT.whatsapp)}`,
+  whatsapp2: `https://wa.me/${APP_CONTACT.whatsappCountryCode}${digitsOnly(APP_CONTACT.whatsapp2)}`,
   telTollFree: `tel:${digitsOnly(APP_CONTACT.tollFree)}`,
-  telLandline: `tel:${digitsOnly(APP_CONTACT.landline)}`,
   mailToRecipient: `mailto:${APP_CONTACT.recipientEmail}`,
 };
 

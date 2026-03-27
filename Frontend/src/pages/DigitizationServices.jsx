@@ -56,7 +56,7 @@ const DigitizationServices = () => {
 
             <section style={{ padding: '80px 0', background: '#f8fafc' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '60px', alignItems: 'center' }}>
                         <div className="reveal">
                             <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '24px' }}>Our Preservation Philosophy</h2>
                             <p style={{ fontSize: '17px', color: 'var(--text-muted)', lineHeight: '1.8', marginBottom: '20px' }}>
@@ -93,7 +93,7 @@ const DigitizationServices = () => {
                         <Link to="/contact" className="btn-primary" style={{ background: 'white', color: 'var(--primary)', padding: '16px 36px', fontSize: '16px', fontWeight: '800' }}>
                             Talk to a Preservation Expert
                         </Link>
-                        <Link to="/request-demo" className="btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.3)', padding: '16px 36px', fontSize: '16px', fontWeight: '800' }}>
+                        <Link to="/request-demo" className="btn-primary" style={{ background: 'transparent', color: 'white', border: '2px solid white', padding: '16px 36px', fontSize: '16px', fontWeight: '800' }}>
                             Request Digitization Demo
                         </Link>
                     </div>

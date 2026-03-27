@@ -853,7 +853,7 @@ img {
 
 .ai-features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 30px;
   margin-top: 50px;
 }
@@ -4877,8 +4877,8 @@ img {
 }
 
 .user-dropdown-item:hover {
-  background: #ef4444;
-  color: white;
+  background: #fef2f2;
+  color: #ef4444;
   transform: translateY(-1px);
 }
 
@@ -6911,22 +6911,33 @@ img {
 
 .user-dropdown-item {
   width: 100%;
-  padding: 14px 20px;
+  padding: 12px 20px;
   border: none;
   background: transparent;
-  color: #ef4444;
+  color: #1e293b; /* Dark by default */
   font-weight: 600;
   font-size: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
   text-align: left;
 }
 
 .user-dropdown-item:hover {
-  background: #fef2f2;
+  background: #f1f5f9; /* Subtle grey hover for links */
+  color: #0f172a;
+}
+
+/* Specific red style for logout */
+.logout-item {
+  color: #ef4444 !important;
+}
+
+.logout-item:hover {
+  background: #fef2f2 !important;
+  color: #ef4444 !important;
 }
 
 @keyframes slideDown {

@@ -43,8 +43,9 @@ export const adminApi = {
     if (error) throw error;
 
     if (categories && categories.length > 0) {
-      const links = categories.map(catId => ({ post_id: post.id, category_id: String(catId) }));
-      await supabase.from('post_categories').insert(links);
+      const links = categories.map(catId => ({ post_id: post.id, category_id: catId }));
+      const { error: catError } = await supabase.from('post_categories').insert(links);
+      if (catError) throw catError;
     }
     return post;
   },
@@ -55,9 +56,14 @@ export const adminApi = {
     if (error) throw error;
 
     if (categories) {
-      await supabase.from('post_categories').delete().eq('post_id', id);
-      const links = categories.map(catId => ({ post_id: id, category_id: String(catId) }));
-      await supabase.from('post_categories').insert(links);
+      const { error: delError } = await supabase.from('post_categories').delete().eq('post_id', id);
+      if (delError) throw delError;
+
+      if (categories.length > 0) {
+        const links = categories.map(catId => ({ post_id: id, category_id: catId }));
+        const { error: insError } = await supabase.from('post_categories').insert(links);
+        if (insError) throw insError;
+      }
     }
     return post;
   },

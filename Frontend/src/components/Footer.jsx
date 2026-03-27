@@ -76,13 +76,15 @@ const Footer = () => {
                                 <span className="info-icon"><i className="fas fa-phone"></i></span>
                                 <div style={{ display: 'flex', gap: '15px' }}>
                                     <a href={LINKS.telTollFree}>{APP_CONTACT.tollFree}</a>
-                                    <span>|</span>
-                                    <a href={LINKS.telLandline}>{APP_CONTACT.landline}</a>
                                 </div>
                             </li>
                             <li>
                                 <span className="info-icon"><i className="fab fa-whatsapp"></i></span>
-                                <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">{APP_CONTACT.whatsapp}</a>
+                                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                                    <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer">{APP_CONTACT.whatsapp}</a>
+                                    <span style={{ color: '#64748b' }}>/</span>
+                                    <a href={LINKS.whatsapp2} target="_blank" rel="noopener noreferrer">{APP_CONTACT.whatsapp2}</a>
+                                </div>
                             </li>
                         </ul>
                     </div>

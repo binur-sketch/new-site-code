@@ -321,10 +321,10 @@ export const CaseStudies = () => {
 
             <section style={{ padding: '80px 0', background: '#f8fafc' }}>
                 <div className="max-container">
-                    <div style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))', 
-                        gap: '32px' 
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
+                        gap: '32px'
                     }}>
                         {filtered.map((cs, i) => (
                             <div key={i} className="glass-card" style={{ padding: '0', overflow: 'hidden', background: 'white' }}>
@@ -428,11 +428,11 @@ export const ContactUs = () => {
 
             <section style={{ padding: 'clamp(60px, 10vw, 100px) 0', background: '#f8fafc' }}>
                 <div className="max-container">
-                    <div className="contact-page-grid" style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 450px), 1fr))', 
-                        gap: 'clamp(30px, 5vw, 60px)', 
-                        alignItems: 'start' 
+                    <div className="contact-page-grid" style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 450px), 1fr))',
+                        gap: 'clamp(30px, 5vw, 60px)',
+                        alignItems: 'start'
                     }}>
 
                         {/* Form */}
@@ -519,7 +519,7 @@ export const ContactUs = () => {
                                 {[
                                     { icon: 'fa-location-dot', color: '#dc2626', title: 'Corporate Office (HQ)', lines: ['Vir Softech Pvt. Ltd.', 'A 306, The I Thum, Plot No. A 40,', 'Sector 62, Noida, UP – 201301, India'] },
                                     { icon: 'fa-globe', color: '#6366f1', title: 'International Presence', lines: ['Japan: West Bldg. 302, 3-26-8 Takaido Higashi, Suginami-ku, Tokyo'] },
-                                    { icon: 'fa-phone', color: '#16a34a', title: 'Call Us', lines: [`${APP_CONTACT.tollFree} (Toll-Free)`, `${APP_CONTACT.landline} (Landline)`] },
+                                    { icon: 'fa-phone', color: '#16a34a', title: 'Call Us', lines: [`${APP_CONTACT.tollFree} (Toll-Free)`] },
                                     { icon: 'fa-whatsapp', color: '#25d366', title: 'WhatsApp', lines: [APP_CONTACT.whatsapp] },
                                     { icon: 'fa-envelope', color: '#1877f2', title: 'Email', lines: [APP_CONTACT.recipientEmail, APP_CONTACT.supportEmail] },
                                     { icon: 'fa-building', color: '#64748b', title: 'Registered Office', lines: ['C-2/54, Ashok Vihar, Phase-II,', 'North West, New Delhi – 110052'] },
@@ -574,11 +574,11 @@ export const PrivacyPolicy = () => {
             />
             <section style={{ padding: 'clamp(40px, 8vw, 80px) 0' }}>
                 <div className="max-container">
-                    <div className="legal-page-grid" style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', 
-                        gap: 'clamp(30px, 6vw, 60px)', 
-                        alignItems: 'start' 
+                    <div className="legal-page-grid" style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+                        gap: 'clamp(30px, 6vw, 60px)',
+                        alignItems: 'start'
                     }}>
                         {/* Sidebar TOC */}
                         <div style={{ position: 'sticky', top: '100px', background: '#f8fafc', borderRadius: '16px', padding: '24px', border: '1px solid var(--border)' }}>
@@ -643,11 +643,11 @@ export const TermsConditions = () => {
             />
             <section style={{ padding: '80px 0' }}>
                 <div className="max-container">
-                    <div className="legal-page-grid" style={{ 
-                        display: 'grid', 
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', 
-                        gap: 'clamp(30px, 6vw, 60px)', 
-                        alignItems: 'start' 
+                    <div className="legal-page-grid" style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
+                        gap: 'clamp(30px, 6vw, 60px)',
+                        alignItems: 'start'
                     }}>
                         {/* Sidebar */}
                         <div style={{ position: 'sticky', top: '100px', background: '#f8fafc', borderRadius: '16px', padding: '24px', border: '1px solid var(--border)' }}>
@@ -741,7 +741,7 @@ export const BlogLegacy = () => {
             />
             <section style={{ padding: '100px 0', background: '#f8fafc' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px, 100%), 1fr))', gap: '40px' }}>
                         {blogPosts.map((post, i) => (
                             <article key={i} className="glass-card reveal" style={{ padding: '0', overflow: 'hidden', background: 'white', display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ height: '240px', overflow: 'hidden' }}>

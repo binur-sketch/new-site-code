@@ -147,11 +147,11 @@ const Navbar = () => {
                         <div
                             className="user-dropdown"
                             style={{ display: userMenuOpen ? "block" : "none" }}>
-                            <Link to="/admin" className="user-dropdown-item" style={{ color: 'var(--text-dark)', textDecoration: 'none' }} onClick={() => setUserMenuOpen(false)}>
+                            <Link to="/admin" className="user-dropdown-item" onClick={() => setUserMenuOpen(false)}>
                                 <i className="fas fa-gauge"></i> Dashboard
                             </Link>
                             <hr style={{ margin: '4px 0', border: 'none', borderTop: '1px solid var(--border)' }} />
-                            <button onClick={handleLogout} className="user-dropdown-item">
+                            <button onClick={handleLogout} className="user-dropdown-item logout-item">
                                 <i className="fas fa-sign-out-alt"></i> Logout
                             </button>
                         </div>
