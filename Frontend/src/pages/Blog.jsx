@@ -258,7 +258,8 @@ const Blog = () => {
   };
 
   const handleStatusChange = (id, newStatus) => {
-    setAllPosts((prev) => prev.map((p) => (p.id === id ? { ...p, status: newStatus } : p)));
+    const now = newStatus === 'published' ? new Date().toISOString() : null;
+    setAllPosts((prev) => prev.map((p) => (p.id === id ? { ...p, status: newStatus, published_at: now || p.published_at } : p)));
     setPosts((prev) => (newStatus === 'published' ? prev : prev.filter((p) => p.id !== id)));
   };
 
@@ -276,8 +277,8 @@ const Blog = () => {
     id: p.id,
     slug: p.slug,
     category: p.categories?.[0]?.name || 'General',
-    date: p.date
-      ? new Date(p.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    date: (p.published_at || p.created_at)
+      ? new Date(p.published_at || p.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
       : 'Draft',
     title: p.title,
     excerpt: p.excerpt || '',

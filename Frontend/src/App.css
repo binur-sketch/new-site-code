@@ -934,9 +934,34 @@ img {
 }
 
 @media (max-width: 600px) {
+  .max-container {
+    padding: 0 16px !important;
+  }
+
   .clientele-grid-static {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    width: 100% !important;
+    margin: 40px auto 0 !important;
+    padding: 0 !important;
+  }
+
+  .client-card-item {
+    flex: 0 0 calc(50% - 16px) !important;
+    max-width: 160px !important;
+    min-width: 120px !important;
+    margin: 0 !important;
+  }
+
+  .client-card {
+    min-height: unset !important;
+    aspect-ratio: 16 / 10 !important;
+  }
+
+  .client-name-label {
+    font-size: 11px !important;
   }
 }
 
@@ -3220,12 +3245,27 @@ img {
     padding: 16px;
   }
 
+  .info-text {
+    text-align: center !important;
+  }
+
   .info-text h2 {
     font-size: 26px;
   }
 
   .info-text p {
     font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .info-list {
+    align-items: center !important;
+  }
+
+  .info-list li {
+    justify-content: center !important;
+    text-align: left; /* Keep text left-aligned relative to icon */
   }
 
   .section-info {

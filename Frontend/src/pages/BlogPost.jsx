@@ -60,6 +60,21 @@ const BlogPost = () => {
     };
 
     loadPost();
+
+    // Increment views
+    const countView = async () => {
+      // Only count if it's a published post
+      const { data: postData } = await supabase
+        .from('posts')
+        .select('id, status')
+        .eq('slug', slug)
+        .single();
+        
+      if (postData && postData.status === 'published') {
+        await supabase.rpc('increment_views', { post_id: postData.id });
+      }
+    };
+    countView();
   }, [slug, canManageContent]);
 
   const handleWithdraw = async () => {

@@ -12,12 +12,17 @@ export const AuthProvider = ({ children }) => {
     const initAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@virsoftech.com';
+        const adminEmails = [
+          'admin@virsoftech.com',
+          'pralay@virsoftech.com',
+          import.meta.env.VITE_ADMIN_EMAIL
+        ].filter(Boolean);
+        
         setUser({
           id: session.user.id,
           name: session.user.user_metadata?.name || session.user.email?.split('@')[0],
           email: session.user.email,
-          role: session.user.email === adminEmail ? 'admin' : 'author',
+          role: adminEmails.includes(session.user.email) ? 'admin' : 'author',
         });
       }
       setLoading(false);
@@ -27,12 +32,17 @@ export const AuthProvider = ({ children }) => {
 
     const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (session) {
-        const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@virsoftech.com';
+        const adminEmails = [
+          'admin@virsoftech.com',
+          'pralay@virsoftech.com',
+          import.meta.env.VITE_ADMIN_EMAIL
+        ].filter(Boolean);
+        
         setUser({
           id: session.user.id,
           name: session.user.user_metadata?.name || session.user.email?.split('@')[0],
           email: session.user.email,
-          role: session.user.email === adminEmail ? 'admin' : 'author',
+          role: adminEmails.includes(session.user.email) ? 'admin' : 'author',
         });
       } else {
         setUser(null);
@@ -51,7 +61,6 @@ export const AuthProvider = ({ children }) => {
       password,
     });
     if (error) {
-      console.error('Login error:', error);
       throw error;
     }
     return data;
@@ -62,8 +71,13 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   }, []);
 
-  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL || 'admin@virsoftech.com';
-  const canManageContent = user?.email === adminEmail;
+  const adminEmails = [
+    'admin@virsoftech.com',
+    'pralay@virsoftech.com',
+    import.meta.env.VITE_ADMIN_EMAIL
+  ].filter(Boolean);
+  
+  const canManageContent = user && adminEmails.includes(user.email);
 
   return (
     <AuthContext.Provider value={{
