@@ -47,8 +47,8 @@ const BlogPost = () => {
         setPost({
           ...data,
           category: data.categories?.[0]?.name || 'General',
-          date: data.published_at 
-            ? new Date(data.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+          date: (data.published_at || data.created_at)
+            ? new Date(data.published_at || data.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
             : 'Draft'
         });
       } catch (err) {
