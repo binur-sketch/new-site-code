@@ -23,7 +23,7 @@ export const handleFormSubmission = async (data, recipientEmail = DEFAULTS.recip
         });
 
         const result = await response.json();
-        return result.success === 'true';
+        return result.success === 'true' || result.success === true;
     } catch (error) {
         console.error('Form submission error:', error);
         return false;

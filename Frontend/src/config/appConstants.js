@@ -7,13 +7,7 @@ const getEnv = (key, fallback = '') => {
 
 const digitsOnly = (value = '') => value.replace(/\D/g, '');
 
-export const API_BASE_URL = getEnv('VITE_API_BASE_URL', 'http://localhost:5000/api');
-
-export const AUTH_STORAGE_KEYS = {
-  token: getEnv('VITE_AUTH_TOKEN_KEY', 'vsdox_token'),
-  session: getEnv('VITE_AUTH_SESSION_KEY', 'vsdox_session'),
-};
-
+export const API_BASE_URL = getEnv('VITE_API_BASE_URL', '');
 export const FORM_SUBMIT_BASE_URL = getEnv('VITE_FORM_SUBMIT_BASE_URL', 'https://formsubmit.co/ajax');
 
 export const COMPANY = {
@@ -22,8 +16,7 @@ export const COMPANY = {
 };
 
 export const APP_CONTACT = {
-  recipientEmail: getEnv('VITE_CONTACT_EMAIL', 'corp@virsoftech.com'),
-  supportEmail: getEnv('VITE_CONTACT_SUPPORT_EMAIL', 'support@virsoftech.com'),
+  recipientEmail: getEnv('VITE_CONTACT_EMAIL', ''),
   tollFree: getEnv('VITE_CONTACT_TOLL_FREE', '18005717711'),
   whatsapp: getEnv('VITE_CONTACT_WHATSAPP', '9871258989'),
   whatsapp2: getEnv('VITE_CONTACT_WHATSAPP2', '9315152290'),

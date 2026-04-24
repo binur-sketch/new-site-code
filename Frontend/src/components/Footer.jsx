@@ -35,16 +35,16 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Solutions Column */}
+                    {/* Industries Column */}
                     <div className="footer-links-col">
                         <h5>Solutions</h5>
                         <ul>
-                            <li><Link to="/solutions/banking-bfsi">BFSI</Link></li>
-                            <li><Link to="/solutions/government">Government</Link></li>
-                            <li><Link to="/solutions/judiciary">Judiciary</Link></li>
-                            <li><Link to="/solutions/corporate">Corporate</Link></li>
-                            <li><Link to="/solutions/healthcare">Healthcare</Link></li>
-                            <li><Link to="/solutions/education">Education</Link></li>
+                            <li><Link to="/banking-bfsi">BFSI</Link></li>
+                            <li><Link to="/government">Government</Link></li>
+                            <li><Link to="/judiciary">Judiciary</Link></li>
+                            <li><Link to="/corporate">Corporate</Link></li>
+                            <li><Link to="/healthcare">Healthcare</Link></li>
+                            <li><Link to="/education">Education</Link></li>
                         </ul>
                     </div>
 

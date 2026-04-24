@@ -31,7 +31,7 @@ const AdminLogin = () => {
     }
   }, []);
 
-  const adminEmailPlaceholder = import.meta.env.VITE_ADMIN_EMAIL || 'your@email.com';
+  const adminEmailPlaceholder = 'Email address';
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -11,37 +11,37 @@ const solutionsDropdown = [
         desc: 'Multimedia & heritage preservation (Manuscripts, AV, Maps).'
     },
     {
-        to: '/solutions/banking-bfsi',
+        to: '/banking-bfsi',
         label: 'BFSI',
         icon: 'fa-university',
         desc: 'Advanced document processing for financial institutions.'
     },
     {
-        to: '/solutions/government',
+        to: '/government',
         label: 'Government',
         icon: 'fa-landmark',
         desc: 'Public sector digital transformation and citizen services.'
     },
     {
-        to: '/solutions/judiciary',
+        to: '/judiciary',
         label: 'Judiciary',
         icon: 'fa-gavel',
         desc: 'E-court management and legal document organization.'
     },
     {
-        to: '/solutions/corporate',
+        to: '/corporate',
         label: 'Corporate',
         icon: 'fa-building',
         desc: 'Enterprise-grade ECM for streamlined workflows.'
     },
     {
-        to: '/solutions/healthcare',
+        to: '/healthcare',
         label: 'Healthcare',
         icon: 'fa-hospital',
         desc: 'Secure medical record management and digitization.'
     },
     {
-        to: '/solutions/education',
+        to: '/education',
         label: 'Education',
         icon: 'fa-graduation-cap',
         desc: 'Digital campus solutions for schools and universities.'
@@ -107,7 +107,7 @@ const Navbar = () => {
                 {/* Solutions Dropdown — CSS :hover driven */}
                 <div className="nav-dropdown-wrapper">
                     <Link
-                        to="/solutions"
+                        to="/"
                         className="nav-link nav-link-btn"
                         style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
                     >
@@ -115,7 +115,6 @@ const Navbar = () => {
                     </Link>
                     <DropdownMenu items={solutionsDropdown} />
                 </div>
-
                 <Link to="/case-studies" className="nav-link">Case Studies</Link>
                 <Link to="/about" className="nav-link">About Us</Link>
                 <Link to="/blog" className="nav-link">Blog</Link>

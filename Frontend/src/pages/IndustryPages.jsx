@@ -489,7 +489,6 @@ export const Judiciary = () => {
                         { icon: 'fa-scale-balanced', title: 'Judgment & Order Repository', desc: 'Searchable database of judgments and orders with AI-powered semantic search and citation cross-linking.' },
                         { icon: 'fa-book', title: 'Legal Research & Discovery', desc: 'Advanced search capabilities to find precedents and relevant case law across multiple years and courts.' },
                         { icon: 'fa-user-lock', title: 'Audit Trail & Compliance', desc: 'Complete history of document access and modifications to ensure the integrity of judicial records.' },
-                        //{ icon: 'fa-network-wired', title: 'Integrated Court Ecosystem', desc: 'Connect with ICJS and other judicial data grids for seamless information exchange.' },
                     ]} />
                 </div>
             </section>

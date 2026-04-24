@@ -56,14 +56,12 @@ CREATE TABLE media (
   uploaded_at timestamp with time zone DEFAULT now()
 );
 
--- 2. ENABLE PUBLIC ACCESS (FOR NOW)
--- This allows the frontend to fetch blogs without complex RLS setup initially.
--- You can enable RLS later for more security.
-
--- 3. STORAGE SETUP
--- Please follow these manual steps in Supabase Dashboard:
--- 1. Go to 'Storage' in the sidebar.
--- 2. Click 'New Bucket' and name it 'media'.
--- 3. IMPORTANT: Make sure the 'Public' toggle is ON.
--- 4. In the 'Policies' tab for the media bucket, add a policy to 'Allow anonymous access' for SELECT.
--- 5. Add a policy for 'Authenticated access' for ALL (INSERT, UPDATE, DELETE).
+-- 2. HELPER FUNCTIONS
+CREATE OR REPLACE FUNCTION increment_views(post_id uuid)
+RETURNS void AS $$
+BEGIN
+  UPDATE posts
+  SET views = views + 1
+  WHERE id = post_id;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;

@@ -1,78 +1,166 @@
-import { motion } from "framer-motion";
+import React from 'react';
 import {
     Building2, Rocket, Award, GraduationCap, FileText, Printer,
     Shield, Car, BookOpen, Globe, Medal, Users, BarChart3,
     Briefcase, Star, Search
 } from "lucide-react";
 
-const earlyMilestones = [
-    { year: "2015", title: "VIR Softech Inception", desc: "Few friends with brilliant careers and complimentary skills join hands to conceive VIR Softech.", color: "#e11d48" },
-    { year: "2016", title: "Eval OMR Launch", desc: "Our first product is live. We launch the Eval OMR solution for digital assessment.", color: "#f97316" },
-    { year: "2017", title: "Startup Recognition", desc: "Recognized as a start-up company by the Ministry of Commerce & Industry, Govt of India.", color: "#2563eb" },
-    { year: "2017", title: "Ministry of Education", desc: "First large-scale deployment. Ministry of Education deploys eVAL OMR in 700 districts.", color: "#475569" },
-    { year: "2018", title: "Japanese Print OEM", desc: "A large Japanese Print OEM signs contract for development of their ver 1.0 print software.", color: "#16a34a" },
-    { year: "2018", title: "Top 20 DMS", desc: "Recognized as Top 20 Most Promising Document Management System by CIO Review.", color: "#dc2626" },
-    { year: "2019", title: "Private Insurance DMS", desc: "Signed contract with one of the largest private life insurance companies in India for DMS.", color: "#2563eb" },
-];
-
-const mainMilestones = [
-    { year: "2019", desc: "Launched Eval CBT Platform for computer-based testing.", icon: <Rocket className="w-5 h-5" />, color: "#be123c", pos: "bottom" },
-    { year: "2020", desc: "Major contract for largest automobile company for DMS implementation.", icon: <Car className="w-5 h-5" />, color: "#1e3a8a", pos: "top" },
-    { year: "2020", desc: "Successfully conducted medical college admission exams on eVAL CBT.", icon: <BookOpen className="w-5 h-5" />, color: "#0369a1", pos: "bottom" },
-    { year: "2021", desc: "Recognized as Top 10 Most Promising ECM provider by CIO Review.", icon: <Star className="w-5 h-5" />, color: "#111827", pos: "top" },
-    { year: "2021", desc: "Developed and released print software products for a US customer.", icon: <Briefcase className="w-5 h-5" />, color: "#0284c7", pos: "bottom" },
-    { year: "2023", desc: "Established international sales team and signed customers in Europe.", icon: <Globe className="w-5 h-5" />, color: "#1e293b", pos: "top" },
-    { year: "2024", desc: "Defence customer milestone with more than 700 eVAL installations.", icon: <Shield className="w-5 h-5" />, color: "#7f1d1d", pos: "bottom" },
-    { year: "2025", desc: "Largest seller of OMR in India. Achieved ISACA / CMMI Level 3 certification.", icon: <Award className="w-5 h-5" />, color: "#ea580c", pos: "top" },
-    { year: "2025", desc: "Successful completion of 4M students African school leaving exam projects.", icon: <Users className="w-5 h-5" />, color: "#b45309", pos: "bottom" },
+const milestones = [
+    { year: "2015", desc: "Company incorporated to deliver innovative software solutions.", icon: <Building2 /> },
+    { year: "2016", desc: "Became registered service provider of DSpace", icon: <Award /> },
+    { year: "2017", desc: "Recognized as a start-up company by the Ministry of Commerce & Industry, Govt of India. Implemented DSpace based digital repository for one of the oldest and most prestigious libraries in India.", icon: <Rocket /> },
+    { year: "2018", desc: "Implemented DSpace based DMS for one of the High Courts in India. Recognized as Top 20 Most Promising Document Management System by CIO Review", icon: <Medal /> },
+    { year: "2019", desc: "Implemented enterprise DMS for the world’s largest two-wheeler manufacturing company.", icon: <Car /> },
+    { year: "2020", desc: "Signed contract with one of the largest private life insurance companies in India for DMS.", icon: <Shield /> },
+    { year: "2021", desc: "Recognized as Top 10 Most Promising ECM provider by CIO Review. More High Courts start adopting Vir Softech DMS solution", icon: <Star /> },
+    { year: "2022", desc: "Delivered IIC DigiLib digital repository – https://digilib.iicdelhi.in/jspui/", icon: <BookOpen /> },
+    { year: "2023", desc: "Implemented Paperless Court solutions and Document Management solutions across multiple High Courts & District Courts, delivered Deccan Virasat digital platform - https://virasat.dcpune.ac.in", icon: <FileText /> },
+    { year: "2024", desc: "Delivered digital repository for Indian Pharmacopoeia Commission (Ministry of Health) - https://iponline.ipc.gov.in/jspui, implemented NPS workflow for a largest POP in India", icon: <Globe /> },
+    { year: "2025", desc: "Achieved CMMI Level 3 (Software Development), started work on DMS implementation for one of the largest and most widespread govt organizations in India", icon: <Award /> },
 ];
 
 const MilestoneTimeline = () => {
     return (
-        <section className="py-20 bg-white overflow-hidden">
-            <div className="container-fluid px-10">
-                <div className="historical-journey">
+        <section className="milestone-section">
+            <div className="max-container">
+                <div className="milestone-header">
+                    <span className="info-tag">OUR JOURNEY</span>
+                    <h2>Historical Journey of VIR Softech</h2>
+                    <p>Building innovation and excellence since 2015.</p>
+                </div>
 
-                    {/* Left Column: Early History */}
-                    <div className="history-early-list">
-                        {earlyMilestones.map((m, i) => (
-                            <div key={i} className="early-item">
-                                <p className="early-desc"><i>{m.desc}</i></p>
-                                <div className="early-year-tag" style={{ borderLeftColor: m.color, color: m.color }}>
-                                    {m.year}
+                <div className="vertical-timeline">
+                    <div className="timeline-line"></div>
+                    {milestones.map((m, i) => (
+                        <div key={i} className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'} reveal`}>
+                            <div className="timeline-dot">
+                                {React.cloneElement(m.icon, { color: "white", size: 20 })}
+                            </div>
+                            <div className="timeline-content">
+                                <div className="timeline-year">{m.year}</div>
+                                <div className="timeline-card-v2">
+                                    <p>{m.desc}</p>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-
-                    {/* Center: Hero Block */}
-                    <div className="history-center-block">
-                        <div className="blue-ribbon">
-                            <h2>Historical Journey of <br />VIR Softech</h2>
                         </div>
-                    </div>
-
-                    {/* Right: Main Axis */}
-                    <div className="history-main-axis">
-                        <div className="horizontal-line" />
-
-                        {mainMilestones.map((m, i) => (
-                            <div key={i} className={`milestone-pin-wrapper ${m.pos}`} style={{ left: `${(i * 10) + 5}%` }}>
-                                <div className="milestone-year-text" style={{ color: m.color }}>{m.year}</div>
-                                <div className="pin-dot" style={{ backgroundColor: m.color }}>
-                                    <div className="pin-stem" style={{ backgroundColor: m.color }} />
-                                </div>
-
-                                {/* Content Card */}
-                                <div className={`milestone-card ${m.pos}`} style={{ borderColor: m.color }}>
-                                    <p className="card-desc">{m.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
+                    ))}
                 </div>
             </div>
+
+            <style dangerouslySetInnerHTML={{ __html: `
+                .milestone-section {
+                    padding: 60px 0;
+                    background: #f8fafc;
+                    overflow: hidden;
+                }
+                .milestone-header {
+                    text-align: center;
+                    margin-bottom: 40px;
+                }
+                .milestone-header h2 {
+                    font-size: 42px;
+                    font-weight: 800;
+                    color: var(--text-dark);
+                    margin: 15px 0;
+                }
+                .vertical-timeline {
+                    position: relative;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    padding: 40px 0;
+                }
+                .timeline-line {
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    bottom: 0;
+                    width: 2px;
+                    background: #e2e8f0;
+                    transform: translateX(-50%);
+                }
+                .timeline-item {
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 50%;
+                    position: relative;
+                    margin-bottom: 30px;
+                    width: 100%;
+                }
+                .timeline-item.right {
+                    justify-content: flex-start;
+                    padding-right: 0;
+                    padding-left: 50%;
+                }
+                .timeline-dot {
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: var(--primary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transform: translateX(-50%);
+                    z-index: 10;
+                    box-shadow: 0 0 0 8px #f8fafc;
+                    border: 2px solid white;
+                    transition: transform 0.3s ease;
+                }
+                .timeline-dot:hover {
+                    transform: translateX(-50%) scale(1.1);
+                }
+                .timeline-content {
+                    width: 100%;
+                    padding: 0 40px;
+                    position: relative;
+                }
+                .timeline-year {
+                    font-size: 20px;
+                    font-weight: 900;
+                    margin-bottom: 6px;
+                    color: var(--primary);
+                }
+                .timeline-card-v2 {
+                    background: white;
+                    padding: 16px 20px;
+                    border-radius: 12px;
+                    box-shadow: var(--shadow);
+                    border: 1px solid var(--border);
+                    transition: var(--transition);
+                }
+                .timeline-card-v2:hover {
+                    box-shadow: var(--shadow-lg);
+                    border-color: var(--primary);
+                }
+                .timeline-card-v2 p {
+                    font-size: 15px;
+                    color: var(--text-main);
+                    line-height: 1.6;
+                    margin: 0;
+                }
+
+                @media (max-width: 768px) {
+                    .timeline-line {
+                        left: 22px;
+                    }
+                    .timeline-item, .timeline-item.right {
+                        justify-content: flex-start;
+                        padding-left: 60px;
+                        padding-right: 0;
+                    }
+                    .timeline-dot {
+                        left: 22px;
+                    }
+                    .timeline-content {
+                        padding: 0;
+                    }
+                    .milestone-header h2 {
+                        font-size: 32px;
+                    }
+                }
+            `}} />
         </section>
     );
 };

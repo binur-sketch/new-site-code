@@ -12,17 +12,11 @@ export const AuthProvider = ({ children }) => {
     const initAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        const adminEmails = [
-          'admin@virsoftech.com',
-          'pralay@virsoftech.com',
-          import.meta.env.VITE_ADMIN_EMAIL
-        ].filter(Boolean);
-        
         setUser({
           id: session.user.id,
           name: session.user.user_metadata?.name || session.user.email?.split('@')[0],
           email: session.user.email,
-          role: adminEmails.includes(session.user.email) ? 'admin' : 'author',
+          role: session.user.user_metadata?.role === 'admin' ? 'admin' : 'author',
         });
       }
       setLoading(false);
@@ -32,17 +26,11 @@ export const AuthProvider = ({ children }) => {
 
     const { data: authListener } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (session) {
-        const adminEmails = [
-          'admin@virsoftech.com',
-          'pralay@virsoftech.com',
-          import.meta.env.VITE_ADMIN_EMAIL
-        ].filter(Boolean);
-        
         setUser({
           id: session.user.id,
           name: session.user.user_metadata?.name || session.user.email?.split('@')[0],
           email: session.user.email,
-          role: adminEmails.includes(session.user.email) ? 'admin' : 'author',
+          role: session.user.user_metadata?.role === 'admin' ? 'admin' : 'author',
         });
       } else {
         setUser(null);
@@ -71,13 +59,7 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   }, []);
 
-  const adminEmails = [
-    'admin@virsoftech.com',
-    'pralay@virsoftech.com',
-    import.meta.env.VITE_ADMIN_EMAIL
-  ].filter(Boolean);
-  
-  const canManageContent = user && adminEmails.includes(user.email);
+  const canManageContent = user && user.role === 'admin';
 
   return (
     <AuthContext.Provider value={{
@@ -95,4 +77,3 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
-

@@ -518,7 +518,7 @@ export const ContactUs = () => {
                                 <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '24px', color: 'var(--text-dark)' }}>Contact Information</h3>
                                 {[
                                     { icon: 'fa-location-dot', color: '#dc2626', title: 'Corporate Office (HQ)', lines: ['Vir Softech Pvt. Ltd.', 'A 306, The I Thum, Plot No. A 40,', 'Sector 62, Noida, UP – 201301, India'] },
-                                    { icon: 'fa-globe', color: '#6366f1', title: 'International Presence', lines: ['Japan: West Bldg. 302, 3-26-8 Takaido Higashi, Suginami-ku, Tokyo'] },
+                                    { icon: 'fa-globe', color: '#6366f1', title: 'International Presence', lines: ['Japan: Tokyo'] },
                                     { icon: 'fa-phone', color: '#16a34a', title: 'Call Us', lines: [`${APP_CONTACT.tollFree} (Toll-Free)`] },
                                     { icon: 'fa-whatsapp', color: '#25d366', title: 'WhatsApp', lines: [APP_CONTACT.whatsapp] },
                                     { icon: 'fa-envelope', color: '#1877f2', title: 'Email', lines: [APP_CONTACT.recipientEmail, APP_CONTACT.supportEmail] },
@@ -693,78 +693,6 @@ export const TermsConditions = () => {
                     </div>
                 </div>
             </section>
-        </>
-    );
-};
-/* ═══════════════════════════════════════════════════════════
-   BLOG PAGE
-   ═══════════════════════════════════════════════════════════ */
-const blogPosts = [
-    {
-        title: "Unlocking ROI with Enterprise Content Management (ECM)",
-        category: "Business Strategy",
-        date: "Feb 24, 2026",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        excerpt: "Discover how modern ECM systems go beyond storage to drive operational efficiency and measurable cost savings for enterprises.",
-        content: "Modern Enterprise Content Management (ECM) isn't just about moving paper to digital. It's about data velocity—the speed at which information moves through your organization to generate value. By automating classification and ensuring instant retrieval, large-scale organizations like Hero MotoCorp have reduced operational document costs by over 40%.",
-        author: "Alok Gupta"
-    },
-    {
-        title: "The Role of AI in Automated Document Classification",
-        category: "Technology",
-        date: "Feb 20, 2026",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2664&auto=format&fit=crop",
-        excerpt: "Explore how Large Language Models and OCR are revolutionizing the way we categorize and extract data from millions of records.",
-        content: "Gone are the days of manual keying. With VSDOX's AI Capture, systems can now 'read' handwriting, detect document types (invoices, legal deeds, medical reports), and extract critical metadata with 99% accuracy. This transition from 'unstructured noise' to 'structured data' is the cornerstone of the AI-powered office.",
-        author: "Tech Insights Team"
-    },
-    {
-        title: "Transitioning to Paperless: A Roadmap for Government Bodies",
-        category: "Public Sector",
-        date: "Feb 15, 2026",
-        image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2340&auto=format&fit=crop",
-        excerpt: "A step-by-step guide for public sector organizations to migrate delicate historical archives into secure digital repositories.",
-        content: "Government projects like the National Archives of India require more than just scanning. They require specialized handling of fragile maps, multilingual OCR, and strict role-based access controls to prevent data exposure while ensuring public accessibility. This roadmap outlines the phased approach to e-governance.",
-        author: "Strategic Planning"
-    }
-];
-
-export const BlogLegacy = () => {
-    useEffect(() => { window.scrollTo(0, 0); document.querySelectorAll('.reveal').forEach(el => el.classList.add('fade-in')); }, []);
-    return (
-        <>
-            <CompanyPageHero
-                tag="INSIGHTS & TRENDS"
-                title="The VSDOX Blog"
-                subtitle="Expert perspectives on ECM, AI-driven automation, and the future of digital documentation."
-                bgImage="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2400&auto=format&fit=crop"
-            />
-            <section style={{ padding: '100px 0', background: '#f8fafc' }}>
-                <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px, 100%), 1fr))', gap: '40px' }}>
-                        {blogPosts.map((post, i) => (
-                            <article key={i} className="glass-card reveal" style={{ padding: '0', overflow: 'hidden', background: 'white', display: 'flex', flexDirection: 'column' }}>
-                                <div style={{ height: '240px', overflow: 'hidden' }}>
-                                    <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'crop', transition: 'transform 0.5s' }} className="blog-img" />
-                                </div>
-                                <div style={{ padding: '32px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                                        <span style={{ fontSize: '11px', fontWeight: '800', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{post.category}</span>
-                                        <span style={{ fontSize: '12px', color: '#64748b' }}>{post.date}</span>
-                                    </div>
-                                    <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '16px', lineHeight: 1.3, color: 'var(--text-dark)' }}>{post.title}</h3>
-                                    <p style={{ fontSize: '15px', color: '#64748b', lineHeight: 1.6, marginBottom: '24px' }}>{post.excerpt}</p>
-                                    <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '20px', borderTop: '1px solid #f1f5f9' }}>
-                                        <span style={{ fontSize: '13px', fontWeight: '700', color: 'var(--text-dark)' }}>By {post.author}</span>
-                                        <Link to="#" style={{ fontSize: '14px', fontWeight: '700', color: 'var(--primary)', textDecoration: 'none' }}>Read Article →</Link>
-                                    </div>
-                                </div>
-                            </article>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
         </>
     );
 };

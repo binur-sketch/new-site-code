@@ -219,7 +219,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="security-item">
-                            <div className="security-item-icon"><i className="fas fa-directory-arrow-right"></i></div>
+                            <div className="security-item-icon"><i className="fas fa-id-card"></i></div>
                             <div className="security-item-content">
                                 <h4>LDAP & Active Directory Integration (SSO)</h4>
                                 <p>Enables secure and seamless authentication through integration with the client’s LDAP or Active Directory, ensuring centralized identity management and controlled user access.</p>
@@ -387,7 +387,7 @@ const Home = () => {
                             </div>
 
                             {/* Hierarchical/Sensitive Workflow */}
-                            <div className="workflow-variant-card highlight">
+                            <div className="workflow-variant-card">
                                 <h4>Hierarchical Verification & Correction</h4>
                                 <p className="variant-intro">Multi-tier, audit-driven path for sensitive records (e.g., land docs) with dedicated reviewer and modifier levels.</p>
                                 <ul className="variant-details">
