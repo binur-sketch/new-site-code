@@ -19,7 +19,7 @@ export const APP_CONTACT = {
   recipientEmail: getEnv('VITE_CONTACT_EMAIL', ''),
   tollFree: getEnv('VITE_CONTACT_TOLL_FREE', '18005717711'),
   whatsapp: getEnv('VITE_CONTACT_WHATSAPP', '9871258989'),
-  whatsapp2: getEnv('VITE_CONTACT_WHATSAPP2', '9315152290'),
+  whatsapp2: getEnv('VITE_CONTACT_WHATSAPP2', '9312339803'),
   whatsappCountryCode: getEnv('VITE_CONTACT_WHATSAPP_COUNTRY_CODE', '91'),
 };
 

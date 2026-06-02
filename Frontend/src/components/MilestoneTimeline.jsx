@@ -6,17 +6,17 @@ import {
 } from "lucide-react";
 
 const milestones = [
-    { year: "2015", desc: "Company incorporated to deliver innovative software solutions.", icon: <Building2 /> },
-    { year: "2016", desc: "Became registered service provider of DSpace", icon: <Award /> },
-    { year: "2017", desc: "Recognized as a start-up company by the Ministry of Commerce & Industry, Govt of India. Implemented DSpace based digital repository for one of the oldest and most prestigious libraries in India.", icon: <Rocket /> },
-    { year: "2018", desc: "Implemented DSpace based DMS for one of the High Courts in India. Recognized as Top 20 Most Promising Document Management System by CIO Review", icon: <Medal /> },
-    { year: "2019", desc: "Implemented enterprise DMS for the world’s largest two-wheeler manufacturing company.", icon: <Car /> },
-    { year: "2020", desc: "Signed contract with one of the largest private life insurance companies in India for DMS.", icon: <Shield /> },
-    { year: "2021", desc: "Recognized as Top 10 Most Promising ECM provider by CIO Review. More High Courts start adopting Vir Softech DMS solution", icon: <Star /> },
-    { year: "2022", desc: "Delivered IIC DigiLib digital repository – https://digilib.iicdelhi.in/jspui/", icon: <BookOpen /> },
-    { year: "2023", desc: "Implemented Paperless Court solutions and Document Management solutions across multiple High Courts & District Courts, delivered Deccan Virasat digital platform - https://virasat.dcpune.ac.in", icon: <FileText /> },
-    { year: "2024", desc: "Delivered digital repository for Indian Pharmacopoeia Commission (Ministry of Health) - https://iponline.ipc.gov.in/jspui, implemented NPS workflow for a largest POP in India", icon: <Globe /> },
     { year: "2025", desc: "Achieved CMMI Level 3 (Software Development), started work on DMS implementation for one of the largest and most widespread govt organizations in India", icon: <Award /> },
+    { year: "2024", desc: "Delivered digital repository for Indian Pharmacopoeia Commission (Ministry of Health) - https://iponline.ipc.gov.in/jspui, implemented NPS workflow for a largest POP in India", icon: <Globe /> },
+    { year: "2023", desc: "Implemented Paperless Court solutions and Document Management solutions across multiple High Courts & District Courts, delivered Deccan Virasat digital platform - https://virasat.dcpune.ac.in", icon: <FileText /> },
+    { year: "2022", desc: "Delivered IIC DigiLib digital repository – https://digilib.iicdelhi.in/jspui/", icon: <BookOpen /> },
+    { year: "2021", desc: "Recognized as Top 10 Most Promising ECM provider by CIO Review. More High Courts start adopting Vir Softech DMS solution", icon: <Star /> },
+    { year: "2020", desc: "Signed contract with one of the largest private life insurance companies in India for DMS.", icon: <Shield /> },
+    { year: "2019", desc: "Implemented enterprise DMS for the world’s largest two-wheeler manufacturing company.", icon: <Car /> },
+    { year: "2018", desc: "Implemented DSpace based DMS for one of the High Courts in India. Recognized as Top 20 Most Promising Document Management System by CIO Review", icon: <Medal /> },
+    { year: "2017", desc: "Recognized as a start-up company by the Ministry of Commerce & Industry, Govt of India. Implemented DSpace based digital repository for one of the oldest and most prestigious libraries in India.", icon: <Rocket /> },
+    { year: "2016", desc: "Became registered service provider of DSpace", icon: <Award /> },
+    { year: "2015", desc: "Company incorporated to deliver innovative software solutions.", icon: <Building2 /> },
 ];
 
 const MilestoneTimeline = () => {
