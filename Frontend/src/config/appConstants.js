@@ -31,11 +31,10 @@ export const LINKS = {
 };
 
 export const SOCIAL_LINKS = {
-  instagram: getEnv('VITE_SOCIAL_INSTAGRAM', 'https://www.instagram.com/virsoftech/'),
-  youtube: getEnv('VITE_SOCIAL_YOUTUBE', 'https://www.youtube.com/c/VirSoftech'),
-  facebook: getEnv('VITE_SOCIAL_FACEBOOK', 'https://www.facebook.com/virsoftech.official/'),
-  linkedin: getEnv('VITE_SOCIAL_LINKEDIN', 'https://in.linkedin.com/company/virsoftech'),
-  x: getEnv('VITE_SOCIAL_X', 'https://x.com/virsoftech'),
+  instagram: getEnv('VITE_SOCIAL_INSTAGRAM', 'https://www.instagram.com/vsdoxofficial/'),
+  facebook: getEnv('VITE_SOCIAL_FACEBOOK', 'https://www.facebook.com/vsdox'),
+  linkedin: getEnv('VITE_SOCIAL_LINKEDIN', 'https://www.linkedin.com/company/vsdox'),
+  googleReview: getEnv('VITE_SOCIAL_GOOGLE_REVIEW', 'https://share.google/TYRrCkBdnBwIsSPoi'),
 };
 
 export const DEFAULTS = {

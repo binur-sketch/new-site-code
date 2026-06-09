@@ -138,8 +138,8 @@ export const BankingBFSI = () => {
     return (
         <>
             <SEO
-                title="DMS for Banking & BFSI – Document Management for Banks & Insurance | VSDOX"
-                description="AI-powered document management for banking, insurance, NBFC, and pension funds. Automate KYC, loan processing, policy management & compliance with VSDOX."
+                title="Document Management System for Banking & BFSI | VSDOX"
+                description="Secure BFSI document management system for banks, NBFCs and financial teams with workflow automation, audit trails, access control and compliance support."
                 keywords="BFSI document management, banking DMS, insurance ECM, KYC automation, loan document management, NBFC DMS India"
             />
             <PageHero
@@ -216,8 +216,8 @@ export const Healthcare = () => {
     return (
         <>
             <SEO
-                title="Healthcare Document Management – Patient Records & Clinical DMS | VSDOX"
-                description="VSDOX securely manages patient records, clinical documents & insurance claims for hospitals. HIPAA-ready, AI-powered, and fully digitized healthcare DMS."
+                title="Healthcare Document Management System | VSDOX"
+                description="Secure healthcare document management system for hospitals and medical institutions to manage records, approvals, access control and digital files."
                 keywords="healthcare document management, patient records DMS, clinical records system, hospital ECM India, HIPAA compliant DMS"
             />
             <PageHero
@@ -276,8 +276,8 @@ export const Corporate = () => {
     return (
         <>
             <SEO
-                title="Corporate ECM – Document Management for Finance, HR & Enterprise | VSDOX"
-                description="VSDOX provides smart document management for corporate, finance, and HR departments. Version control, ERP integration, and secure employee records."
+                title="Document Management Software for Businesses | VSDOX"
+                description="VSDOX helps businesses manage HR, finance, legal and operational documents with secure access, version control, workflow automation and audit trails."
                 keywords="corporate document management, finance DMS, HR document management, employee records DMS, enterprise ECM India, payroll document management"
             />
             <PageHero
@@ -338,8 +338,8 @@ export const Education = () => {
     return (
         <>
             <SEO
-                title="Education DMS – Digital Archives & Repository for Universities | VSDOX"
-                description="VSDOX helps universities, libraries, and research institutions digitize academic records, create institutional repositories, and enable NAAC compliance documentation."
+                title="Digital Document Management System for Education | VSDOX"
+                description="VSDOX helps educational institutions digitize student records, admin files, certificates and approvals with a secure digital document management system."
                 keywords="education document management, university digital archive, library digitization, institutional repository India, NAAC compliance docs"
             />
             <PageHero
@@ -398,8 +398,8 @@ export const Government = () => {
     return (
         <>
             <SEO
-                title="Government ECM – e-Governance & Public Sector Document Management | VSDOX"
-                description="VSDOX powers e-governance for Indian ministries, High Courts, land records & public sector bodies. GeM-empanelled, on-premise, sovereign-grade DMS solution."
+                title="Enterprise Content Management for Government | VSDOX"
+                description="VSDOX offers enterprise content management solutions for government departments to digitize records, manage files, improve approvals and secure documents."
                 keywords="government document management, e-governance DMS, public sector ECM, ministry records management, GeM DMS, land records digitization India"
             />
             <PageHero
@@ -458,8 +458,8 @@ export const Judiciary = () => {
     return (
         <>
             <SEO
-                title="Judiciary DMS – Case Records & E-Court Document Management | VSDOX"
-                description="VSDOX is trusted by 15+ High Courts in India for digitizing case files, e-filing, judgment management, and AI-powered legal document search."
+                title="Digital Document Management System for Judiciary | VSDOX"
+                description="Digitize and manage court records, case files and legal documents with a secure digital document management system built for judiciary workflows."
                 keywords="judiciary document management, court DMS India, e-filing system, case records digitization, High Court ECM, legal document management"
             />
             <PageHero

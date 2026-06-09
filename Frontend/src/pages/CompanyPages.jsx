@@ -289,8 +289,8 @@ export const CaseStudies = () => {
     return (
         <>
             <SEO
-                title="Client Success Stories – DMS Case Studies | VSDOX"
-                description="Discover how HDFC Life, Hero MotoCorp, High Courts, Government Ministries, and more transformed their document operations with VSDOX AI-powered ECM."
+                title="Enterprise Content Management Case Studies | VSDOX"
+                description="Explore how VSDOX helps organizations improve document control, workflow automation, enterprise content management and digital transformation."
                 keywords="DMS case studies, ECM success stories, HDFC Life DMS, Hero MotoCorp document management, government digitization, judiciary case management"
             />
             <CompanyPageHero
@@ -415,8 +415,8 @@ export const ContactUs = () => {
     return (
         <>
             <SEO
-                title="Contact Us – Get in Touch with VSDOX ECM Experts"
-                description="Connect with Vir Softech's ECM experts in India. Reach us at our Noida HQ, international offices, or via phone, email, and WhatsApp. Request a personalized demo today."
+                title="Book a Demo for Document Management Software | VSDOX"
+                description="Contact VSDOX to book a demo of document management software for secure storage, workflow automation, enterprise access control and digital records."
                 keywords="contact VSDOX, Vir Softech contact, DMS support India, ECM demo request, document management contact"
             />
             <CompanyPageHero
@@ -517,16 +517,16 @@ export const ContactUs = () => {
                             <div style={{ marginBottom: '32px' }}>
                                 <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '24px', color: 'var(--text-dark)' }}>Contact Information</h3>
                                 {[
-                                    { icon: 'fa-location-dot', color: '#dc2626', title: 'Corporate Office (HQ)', lines: ['Vir Softech Pvt. Ltd.', 'A 306, The I Thum, Plot No. A 40,', 'Sector 62, Noida, UP – 201301, India'] },
-                                    { icon: 'fa-globe', color: '#6366f1', title: 'International Presence', lines: ['Japan: Tokyo'] },
-                                    { icon: 'fa-phone', color: '#16a34a', title: 'Call Us', lines: [`${APP_CONTACT.tollFree} (Toll-Free)`] },
-                                    { icon: 'fa-whatsapp', color: '#25d366', title: 'WhatsApp', lines: [APP_CONTACT.whatsapp] },
-                                    { icon: 'fa-envelope', color: '#1877f2', title: 'Email', lines: [APP_CONTACT.recipientEmail, APP_CONTACT.supportEmail] },
-                                    { icon: 'fa-building', color: '#64748b', title: 'Registered Office', lines: ['C-2/54, Ashok Vihar, Phase-II,', 'North West, New Delhi – 110052'] },
+                                    { icon: 'fas fa-location-dot', color: '#dc2626', title: 'Corporate Office (HQ)', lines: ['Vir Softech Pvt. Ltd.', 'A 306, The I Thum, Plot No. A 40,', 'Sector 62, Noida, UP – 201301, India'] },
+                                    { icon: 'fas fa-globe', color: '#6366f1', title: 'International Presence', lines: ['Japan: Tokyo'] },
+                                    { icon: 'fas fa-phone', color: '#16a34a', title: 'Call Us', lines: [`${APP_CONTACT.tollFree} (Toll-Free)`] },
+                                    { icon: 'fab fa-whatsapp', color: '#25d366', title: 'WhatsApp', lines: [APP_CONTACT.whatsapp] },
+                                    { icon: 'fas fa-envelope', color: '#1877f2', title: 'Email', lines: [APP_CONTACT.recipientEmail, APP_CONTACT.supportEmail] },
+                                    { icon: 'fas fa-building', color: '#64748b', title: 'Registered Office', lines: ['C-2/54, Ashok Vihar, Phase-II,', 'North West, New Delhi – 110052'] },
                                 ].map((info, i) => (
                                     <div key={i} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', marginBottom: '24px', background: 'white', padding: '20px', borderRadius: '14px', border: '1px solid var(--border)', boxShadow: '0 4px 6px rgba(0,0,0,0.03)' }}>
                                         <span style={{ width: '44px', height: '44px', borderRadius: '12px', background: info.color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', flexShrink: 0, fontSize: '18px' }}>
-                                            <i className={`fas ${info.icon}`}></i>
+                                            <i className={info.icon}></i>
                                         </span>
                                         <div>
                                             <div style={{ fontWeight: '700', color: 'var(--text-dark)', marginBottom: '6px' }}>{info.title}</div>

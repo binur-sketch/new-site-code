@@ -20,17 +20,14 @@ const Footer = () => {
                             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="social-icon-box social-instagram" title="Instagram">
                                 <i className="fab fa-instagram"></i>
                             </a>
-                            <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer" className="social-icon-box social-youtube" title="YouTube">
-                                <i className="fab fa-youtube"></i>
-                            </a>
                             <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="social-icon-box social-facebook" title="Facebook">
                                 <i className="fab fa-facebook-f"></i>
                             </a>
                             <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon-box social-linkedin" title="LinkedIn">
                                 <i className="fab fa-linkedin-in"></i>
                             </a>
-                            <a href={SOCIAL_LINKS.x} target="_blank" rel="noopener noreferrer" className="social-icon-box social-x" title="X (Twitter)">
-                                <i className="fab fa-x-twitter"></i>
+                            <a href={SOCIAL_LINKS.googleReview} target="_blank" rel="noopener noreferrer" className="social-icon-box social-google" title="Google Review">
+                                <i className="fab fa-google"></i>
                             </a>
                         </div>
                     </div>
@@ -45,6 +42,18 @@ const Footer = () => {
                             <li><Link to="/corporate">Corporate</Link></li>
                             <li><Link to="/healthcare">Healthcare</Link></li>
                             <li><Link to="/education">Education</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Resources / Landing Pages Column */}
+                    <div className="footer-links-col">
+                        <h5>Resources</h5>
+                        <ul>
+                            <li><Link to="/document-management-software">Document Management Software</Link></li>
+                            <li><Link to="/enterprise-document-management-system">Enterprise DMS</Link></li>
+                            <li><Link to="/enterprise-content-management-system">Enterprise ECM</Link></li>
+                            <li><Link to="/ai-document-management-software">AI Document Management</Link></li>
+                            <li><Link to="/digitization-services">Digitization Services</Link></li>
                         </ul>
                     </div>
 

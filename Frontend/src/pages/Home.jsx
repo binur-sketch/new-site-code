@@ -1,18 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ClientLogos from '../components/ClientLogos';
 import SEO from '../components/SEO';
 import GovtRegistrations from '../components/GovtRegistrations';
 import logo from '../logo.png';
-import heroVsdox from '../assets/hero-vsdox.png';
-import isoCert from '../assets/iso.jpg';
-import cmmiCert from '../assets/cmmi.jpg';
-import headlessDms from '../assets/headless DMS.png';
+import heroVsdox from '../assets/enterprise-document-management-system.webp';
+import isoCert from '../assets/iso-certified-document-management-system.webp';
+import cmmiCert from '../assets/cmmi-maturity-level-3-enterprise-content-management-system.webp';
+import headlessDms from '../assets/ai-document-management-software.webp';
 import abLogo from '../assets/hdfcLife.png';
 import religareLogo from '../assets/Religare-Broking-Ltd..jpg';
-import heroMotologo from '../assets/Hero_MotoCorp-Logo.wine.svg'
+import heroMotologo from '../assets/Hero_MotoCorp-Logo.wine.svg';
+import { supabase } from '../lib/supabase';
+import { DEFAULTS } from '../config/appConstants';
 
 const Home = () => {
+    const [latestPosts, setLatestPosts] = useState([]);
+
     useEffect(() => {
         const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
@@ -25,13 +29,29 @@ const Home = () => {
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Fetch latest 3 blog posts
+        const fetchLatestPosts = async () => {
+            try {
+                const { data } = await supabase
+                    .from('posts')
+                    .select('id, title, excerpt, slug, image, published_at, author')
+                    .eq('status', 'published')
+                    .order('published_at', { ascending: false })
+                    .limit(3);
+                if (data) setLatestPosts(data);
+            } catch (e) {
+                console.error('Failed to fetch latest posts', e);
+            }
+        };
+        fetchLatestPosts();
     }, []);
 
     return (
         <main>
-            <SEO 
-                title="AI-first Document Management Software | VSDOX"
-                description="AI-first enterprise document management system (EDMS) in India. Capture, index, store, archive, & retrieve documents at scale. Ask for a demo!"
+            <SEO
+                title="Enterprise Document Management System in India | VSDOX"
+                description="VSDOX is an AI-powered enterprise document management system for secure document storage, workflow automation, access control and digital transformation."
                 keywords="DMS, Document Management System, ECM, Enterprise Content Management System, AI-powered document management, Secure ECM, Scalable Enterprise Content Management, Intelligent capture, Seamless integration, Lifecycle automation, Advanced search, Digital operations, Content platform, Cloud-based centralized repository, Version control, Auditability, Approval workflows, Disaster recovery, Electronic DMS, Workflow automation, Records Management, Content lifecycle management, API integration, Document classification, Remote and hybrid teams, Document intelligence, EDMS India, Document Digitization"
             />
             {/* Redesigned Hero Section V4 */}
@@ -44,20 +64,20 @@ const Home = () => {
                                 AI-POWERED DOCUMENT INTELLIGENCE
                             </div>
                             <h1>
-                                Reduce <span className="gradient-text">Operational Burden</span> with Intelligent ECM
+                                Enterprise <span className="gradient-text">Document Management</span> System
                             </h1>
                             <p>
                                 Transform your documentation workflow with VSDOX AI. Automate classification, extraction, and retrieval while ensuring enterprise-grade security and scalability.
                             </p>
                             <div className="hero-buttons-v4">
-                                <Link to="#" className="btn-primary">Learn More About VSDOX</Link>
+                                <Link to="/ai-document-management-software" className="btn-primary">Learn More About VSDOX</Link>
                                 <Link to="/request-demo" className="btn-primary">Platform Demo</Link>
                             </div>
                         </div>
 
                         <div className="hero-visual-v4 reveal" style={{ transitionDelay: '0.3s' }}>
                             <div className="main-visual-card">
-                                <img src={heroVsdox} alt="VSDOX AI Dashboard Interface" style={{ borderRadius: '24px' }} />
+                                <img src={heroVsdox} alt="Enterprise Document Management System by VSDOX - secure digital document workflows" style={{ borderRadius: '24px' }} />
                             </div>
 
                             <div className="floating-element fe-1">
@@ -419,7 +439,7 @@ const Home = () => {
                         </div>
                         <div className="headless-visual reveal" style={{ transitionDelay: '0.2s' }}>
                             <div className="headless-image-wrapper">
-                                <img src={headlessDms} alt="VSDOX Headless DMS Architecture" />
+                                <img src={headlessDms} alt="AI Document Management Software by VSDOX with OCR, smart indexing and automation" />
                                 <div className="image-overlay-glow"></div>
                             </div>
                         </div>
@@ -448,12 +468,12 @@ const Home = () => {
                         </div>
                         <div className="trust-badges-area">
                             <div className="recognition-badge">
-                                <img src={isoCert} alt="ISO 9001:2015 Certification" />
+                                <img src={isoCert} alt="ISO Certified Document Management System - VSDOX by Vir Softech" title="ISO Certified Document Management System - VSDOX by Vir Softech" />
                                 <h4>Certified</h4>
                                 <p>ISO 9001:2015</p>
                             </div>
                             <div className="recognition-badge">
-                                <img src={cmmiCert} alt="CMMI Level 3 Maturity" />
+                                <img src={cmmiCert} alt="CMMI Maturity Level 3 - Enterprise Content Management System by VSDOX" />
                                 <h4>Maturity</h4>
                                 <p>CMMI Level 3 from CMMI Institute</p>
                             </div>
@@ -603,6 +623,55 @@ const Home = () => {
             {/* Our Clientele Section */}
             <ClientLogos />
 
+
+            {/* Latest Blog Posts Section */}
+            {latestPosts.length > 0 && (
+                <section style={{ padding: '80px 0', background: '#f8fafc' }}>
+                    <div className="max-container reveal">
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '16px' }}>
+                            <div>
+                                <span style={{ display: 'inline-block', background: 'rgba(29,99,237,0.08)', color: 'var(--primary)', fontSize: '12px', fontWeight: '700', letterSpacing: '0.1em', padding: '5px 12px', borderRadius: '100px', marginBottom: '12px', border: '1px solid rgba(29,99,237,0.15)' }}>INSIGHTS & TRENDS</span>
+                                <h2 style={{ fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '900', color: 'var(--text-dark)', margin: 0 }}>Latest from Our Blog</h2>
+                            </div>
+                            <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '15px' }}>
+                                View All Articles <i className="fas fa-arrow-right"></i>
+                            </Link>
+                        </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '28px' }}>
+                            {latestPosts.map((post) => (
+                                <Link
+                                    key={post.id}
+                                    to={`/blog/${post.slug}`}
+                                    style={{ textDecoration: 'none', display: 'block', background: 'white', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--border)', transition: 'all 0.3s ease', boxShadow: '0 4px 12px rgba(0,0,0,0.04)' }}
+                                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
+                                    onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.04)'; }}
+                                >
+                                    <div style={{ height: '200px', overflow: 'hidden' }}>
+                                        <img
+                                            src={post.image || DEFAULTS.blogCoverImage}
+                                            alt={post.title}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                                            onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
+                                            onMouseLeave={e => e.target.style.transform = 'scale(1)'}
+                                        />
+                                    </div>
+                                    <div style={{ padding: '24px' }}>
+                                        <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '10px' }}>
+                                            {post.published_at ? new Date(post.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''}
+                                            {post.author && <span> &middot; {post.author}</span>}
+                                        </div>
+                                        <h3 style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)', lineHeight: '1.4', marginBottom: '10px' }}>{post.title}</h3>
+                                        {post.excerpt && <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>}
+                                        <div style={{ marginTop: '16px', display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: '700', fontSize: '13px' }}>
+                                            Read More <i className="fas fa-arrow-right" style={{ fontSize: '11px' }}></i>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* CTA Section */}
             <section className="cta-section reveal">

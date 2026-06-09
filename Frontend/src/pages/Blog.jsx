@@ -8,6 +8,8 @@ import { supabase } from '../lib/supabase';
 import { adminApi } from '../features/admin/api';
 import { DEFAULTS } from '../config/appConstants';
 import SEO from '../components/SEO';
+import blogHeroBg from '../assets/blog-hero-bg.png';
+
 
 const normalizePosts = (res) => {
   if (Array.isArray(res)) return res;
@@ -295,18 +297,18 @@ const Blog = () => {
   return (
     <main>
       <SEO
-        title="VSDOX Blog – ECM Insights, Document Management Trends & Technology"
-        description="Read the latest insights on Enterprise Content Management, document digitization, AI-powered DMS, and digital transformation from VSDOX experts at Vir Softech."
+        title="Document Management Software Guides & Insights | VSDOX"
+        description="Read VSDOX insights on document management software, enterprise content management, AI document processing, digital workflows and business automation."
         keywords="ECM blog, document management articles, AI DMS insights, enterprise content management trends, VSDOX blog, Vir Softech insights"
       />
       {showDashboard && canManageContent && (
         <>
           <div onClick={() => setShowDashboard(false)} className="blog-dashboard-backdrop" />
           <div className="blog-dashboard-panel">
-            <AdminDashboard 
-              onClose={() => setShowDashboard(false)} 
-              initialView={dashboardView} 
-              key={dashboardView} 
+            <AdminDashboard
+              onClose={() => setShowDashboard(false)}
+              initialView={dashboardView}
+              key={dashboardView}
             />
           </div>
         </>
@@ -316,7 +318,7 @@ const Blog = () => {
         tag="INSIGHTS & TRENDS"
         title="Insights & Blog"
         subtitle="Thought leadership, technology trends, and industry updates from the experts in document intelligence."
-        bgImage={DEFAULTS.blogHeroImage}
+        bgImage={blogHeroBg}
       />
 
       <section className="blog-section">
@@ -330,8 +332,8 @@ const Blog = () => {
                   {adminMode ? 'Admin Mode ON' : 'Admin Mode'}
                 </button>
                 <button onClick={() => { setDashboardView('list'); setShowDashboard(true); }} className="blog-control-btn"><i className="fas fa-tasks" aria-hidden="true"></i> Manage Post</button>
-                <button 
-                  onClick={() => { setDashboardView('form'); setShowDashboard(true); }} 
+                <button
+                  onClick={() => { setDashboardView('form'); setShowDashboard(true); }}
                   className="blog-control-btn blog-control-btn-primary"
                   style={{ background: 'var(--primary)', color: 'white' }}
                 >
@@ -371,15 +373,15 @@ const Blog = () => {
           ) : (
             <div className="industry-grid-detailed blog-grid">
               {filteredPosts.map((post) => (
-              <BlogCard
-                key={post.id}
-                {...formatPost(post)}
-                categories={post.categories || []}
-                activeFilter={activeFilter}
-                isAdmin={canManageContent}
-                onStatusChange={handleStatusChange}
-                onDelete={handleDelete}
-              />
+                <BlogCard
+                  key={post.id}
+                  {...formatPost(post)}
+                  categories={post.categories || []}
+                  activeFilter={activeFilter}
+                  isAdmin={canManageContent}
+                  onStatusChange={handleStatusChange}
+                  onDelete={handleDelete}
+                />
               ))}
             </div>
           )}

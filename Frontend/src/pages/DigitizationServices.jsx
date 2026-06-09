@@ -42,8 +42,8 @@ const DigitizationServices = () => {
     return (
         <main>
             <SEO
-                title="Multimedia & Heritage Digitization Services – Archives & Document Scanning | VSDOX"
-                description="Professional digitization of rare manuscripts, audiovisual archives, microfilm, and large-format maps. Expert non-invasive scanning & long-term digital preservation by Vir Softech."
+                title="Document Digitization Services & Digital DMS | VSDOX"
+                description="Convert physical files into a secure digital document management system with scanning, indexing, OCR, workflow and enterprise-ready document access."
                 keywords="heritage digitization, document scanning India, manuscript digitization, microfilm conversion, audiovisual digitization, archival scanning services, DMS, Document Management System, ECM, Enterprise Content Management System, AI-powered document management, Secure ECM, Scalable Enterprise Content Management, Intelligent capture, Seamless integration, Lifecycle automation, Advanced search, Digital operations, Content platform, Cloud-based centralized repository, Version control, Auditability, Approval workflows, Electronic DMS, Workflow automation, Records Management, Content lifecycle management, Document classification, Digital preservation"
             />
             <PageHero

@@ -23,6 +23,14 @@ import {
   TermsConditions,
 } from './pages/CompanyPages';
 
+import {
+  DocumentManagementSoftware,
+  EnterpriseDocumentManagementSystem,
+  EnterpriseContentManagementSystem,
+  AiDocumentManagementSoftware
+} from './pages/LandingPages';
+
+
 import ScrollToTop from './components/ScrollToTop';
 import RequestDemo from './pages/RequestDemo';
 import DigitizationServices from './pages/DigitizationServices';
@@ -48,6 +56,12 @@ function App() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="digitization-services" element={<DigitizationServices />} />
+
+            {/* Landing Pages */}
+            <Route path="document-management-software" element={<DocumentManagementSoftware />} />
+            <Route path="enterprise-document-management-system" element={<EnterpriseDocumentManagementSystem />} />
+            <Route path="enterprise-content-management-system" element={<EnterpriseContentManagementSystem />} />
+            <Route path="ai-document-management-software" element={<AiDocumentManagementSoftware />} />
 
             {/* Industry Specific Routes (Root level as requested) */}
             <Route path="banking-bfsi" element={<BankingBFSI />} />

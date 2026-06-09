@@ -119,7 +119,7 @@ const RequestDemo = () => {
             {/* Main Content — split layout */}
             <section style={{ background: '#f8fafc', padding: '80px 0' }}>
                 <div className="max-container">
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '60px', alignItems: 'start' }}>
+                    <div className="request-demo-main-grid" style={{ gap: '60px', alignItems: 'start' }}>
 
                         {/* Left — Info Panel */}
                         <div>
@@ -190,7 +190,7 @@ const RequestDemo = () => {
 
                                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                                         {/* Name row */}
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                                        <div className="request-demo-form-grid" style={{ gap: '16px' }}>
                                             <div>
                                                 <label style={labelStyle}>First Name *</label>
                                                 <input name="firstName" value={form.firstName} onChange={handleChange} required style={inputStyle} placeholder="Rajesh" />
@@ -202,7 +202,7 @@ const RequestDemo = () => {
                                         </div>
 
                                         {/* Email & Phone */}
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                                        <div className="request-demo-form-grid" style={{ gap: '16px' }}>
                                             <div>
                                                 <label style={labelStyle}>Work Email *</label>
                                                 <input name="email" type="email" value={form.email} onChange={handleChange} required style={inputStyle} placeholder="rajesh@company.com" />
@@ -214,7 +214,7 @@ const RequestDemo = () => {
                                         </div>
 
                                         {/* Org & Designation */}
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                                        <div className="request-demo-form-grid" style={{ gap: '16px' }}>
                                             <div>
                                                 <label style={labelStyle}>Organization *</label>
                                                 <input name="organization" value={form.organization} onChange={handleChange} required style={inputStyle} placeholder="Organization name" />
@@ -226,7 +226,7 @@ const RequestDemo = () => {
                                         </div>
 
                                         {/* Industry & Employees */}
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                                        <div className="request-demo-form-grid" style={{ gap: '16px' }}>
                                             <div>
                                                 <label style={labelStyle}>Industry *</label>
                                                 <select name="industry" value={form.industry} onChange={handleChange} required style={inputStyle}>

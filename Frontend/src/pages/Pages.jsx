@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import MilestoneTimeline from '../components/MilestoneTimeline';
-
-import teamBanner from '../assets/team-member.jpeg';
+import teamMemberBg from '../assets/team-member.jpeg';
 
 const PageHero = ({ title, subtitle, bgImage }) => (
     <section className="page-hero-container" style={{
@@ -95,14 +94,14 @@ export const About = () => {
     return (
         <>
             <SEO
-                title="About Vir Softech – India's Leading ECM & DMS Technology Company"
-                description="Vir Softech Pvt. Ltd. is an ISO 9001:2015 certified, CMMI Level 3 company delivering AI-powered document management solutions to 500+ clients globally since 1995."
+                title="About VSDOX | Enterprise Content Management Software"
+                description="Learn about VSDOX by Vir Softech, an enterprise content management software solution built for secure, scalable and intelligent document workflows."
                 keywords="Vir Softech, about VSDOX, ECM company India, DMS provider, ISO certified document management, CMMI Level 3, DMS, Document Management System, ECM, Enterprise Content Management System, AI-powered document management, Secure ECM, Scalable Enterprise Content Management, Intelligent capture, Seamless integration, Lifecycle automation, Advanced search, Digital operations, Content platform, Cloud-based centralized repository, Version control, Auditability, Approval workflows, Electronic DMS, Records Management, Content lifecycle management, API integration, Document classification"
             />
             <PageHero
                 title="About Vir Softech"
                 subtitle="Business-led IT process transformation for a digital world."
-                bgImage={teamBanner}
+                bgImage={teamMemberBg}
             />
 
             <section className="section max-container reveal" style={{ padding: '80px 0' }}>
