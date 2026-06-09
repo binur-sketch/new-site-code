@@ -12,6 +12,7 @@ import dmsGraphic2 from '../assets/dms-graphic-2.png';
 import aiDmsGraphic from '../assets/ai-dms-graphic.png';
 import ecmGraphic from '../assets/ecm-graphic.jpg';
 import enterpriseDmsGraphic from '../assets/enterprise-dms-graphic.jpg';
+import enterpriseDmsWebp from '../assets/enterprise-document-management-system.webp';
 
 const PageHero = ({ title, subtitle, tag, bgImage }) => (
     <section style={{
@@ -52,7 +53,7 @@ const FeatureGrid = ({ features }) => (
                 {features.map((f, i) => (
                     <div key={i} className="ai-feature-card reveal" style={{ background: 'white', padding: '30px', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
                         <div className="ai-icon" style={{ fontSize: '32px', color: 'var(--primary)', marginBottom: '20px' }}><i className={`fas ${f.icon}`}></i></div>
-                        <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '12px' }}>{f.title}</h3>
+                        <h3 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '12px', color: 'var(--text-dark)' }}>{f.title}</h3>
                         <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>{f.desc}</p>
                     </div>
                 ))}
@@ -195,7 +196,7 @@ export const DocumentManagementSoftware = () => {
                             { title: 'Operations', desc: 'SOPs, vendor contracts, supply chain documentation, and quality assurance logs.' }
                         ].map((uc, i) => (
                             <div key={i} style={{ background: 'white', padding: '30px', borderRadius: '12px', border: '1px solid var(--border)' }}>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>{uc.title}</h4>
+                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px', color: 'var(--text-dark)' }}>{uc.title}</h4>
                                 <p style={{ color: 'var(--text-muted)' }}>{uc.desc}</p>
                             </div>
                         ))}
@@ -273,7 +274,7 @@ export const EnterpriseDocumentManagementSystem = () => {
                         ].map((uc, i) => (
                             <div key={i} style={{ background: '#f8fafc', padding: '40px 30px', borderRadius: '16px', textAlign: 'center' }}>
                                 <i className={`fas ${uc.icon}`} style={{ fontSize: '40px', color: 'var(--primary)', marginBottom: '20px' }}></i>
-                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>{uc.title}</h4>
+                                <h4 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px', color: 'var(--text-dark)' }}>{uc.title}</h4>
                                 <p style={{ color: 'var(--text-muted)' }}>{uc.desc}</p>
                             </div>
                         ))}
@@ -366,7 +367,7 @@ export const AiDocumentManagementSoftware = () => {
             <PageHero
                 tag="AI-POWERED SOLUTION"
                 title="AI Document Management Software"
-                subtitle="Automate data entry, eliminate manual sorting, and unlock insights from unstructured documents using advanced Machine Learning and Intelligent Document Processing (IDP)."
+                subtitle="An intelligent platform that automates document capture, classification, indexing, and retrieval using AI. Enables secure storage, smart search, workflow automation, and compliance-driven document management across the enterprise."
                 bgImage={bgAiDms}
             />
 
@@ -374,8 +375,11 @@ export const AiDocumentManagementSoftware = () => {
                 title="What is AI Document Management Software?"
                 content={
                     <>
-                        <p style={{ marginBottom: '16px' }}>AI Document Management Software integrates Artificial Intelligence (AI) and Machine Learning (ML) into traditional DMS to automate cognitive tasks such as reading, classifying, and extracting data from documents.</p>
-                        <p style={{ marginBottom: '16px' }}>Known as <strong>Intelligent Document Processing (IDP)</strong>, this technology allows VSDOX to "understand" the context of an invoice, contract, or form, turning unstructured visual data into structured, actionable business intelligence without human intervention.</p>
+                        <p style={{ marginBottom: '16px' }}>VsDox AI Document Management Software leverages Artificial Intelligence (AI), Machine Learning (ML), Natural Language Processing (NLP), and Generative AI to intelligently classify documents, extract key information, generate metadata, summarize content, and enable natural language interactions with enterprise content.
+
+                            <p style={{ marginBottom: '16px' }}> By understanding context and meaning beyond keywords, VsDox AI delivers semantic search, knowledge discovery, and actionable insights across structured and unstructured information, transforming documents into a searchable and intelligent knowledge repository.</p></p>
+
+
                     </>
                 }
                 imageRight={true}
