@@ -323,7 +323,7 @@ export const EnterpriseContentManagementSystem = () => {
                         </div>
                     </>
                 }
-                imageRight={false}
+                imageRight={true}
                 image={ecmGraphic}
             />
 
