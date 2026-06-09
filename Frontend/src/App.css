@@ -7020,7 +7020,7 @@ img {
 }
 
 /* -- Prevent horizontal overflow globally -- */
-section, .max-container, footer {
+section, footer {
   max-width: 100%;
   overflow-x: hidden;
 }
