@@ -8,7 +8,7 @@ import heroVsdox from '../assets/enterprise-document-management-system.webp';
 import isoCert from '../assets/iso-certified-document-management-system.webp';
 import cmmiCert from '../assets/cmmi-maturity-level-3-enterprise-content-management-system.webp';
 import headlessDms from '../assets/ai-document-management-software.webp';
-import abLogo from '../assets/hdfcLife.png';
+import abLogo from '../assets/hdfclife.png';
 import religareLogo from '../assets/Religare-Broking-Ltd..jpg';
 import heroMotologo from '../assets/Hero_MotoCorp-Logo.wine.svg';
 import { supabase } from '../lib/supabase';
