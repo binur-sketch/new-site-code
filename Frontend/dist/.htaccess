@@ -1,3 +1,22 @@
+# ============================================================
+# VSDOX — Production .htaccess for GoDaddy Shared Hosting
+# ============================================================
+
+# --- Force HTTPS ---
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- Force www (or remove www — pick ONE, current: force www) ---
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTP_HOST} !^www\. [NC]
+#   RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# --- React SPA: Route all requests through index.html ---
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -6,3 +25,97 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
+
+# --- Browser Caching ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML — no cache (SPA shell must always be fresh)
+  ExpiresByType text/html                       "access plus 0 seconds"
+
+  # JS & CSS bundles (Vite adds content hash — cache aggressively)
+  ExpiresByType application/javascript          "access plus 1 year"
+  ExpiresByType text/javascript                 "access plus 1 year"
+  ExpiresByType text/css                        "access plus 1 year"
+
+  # Images & fonts
+  ExpiresByType image/png                       "access plus 6 months"
+  ExpiresByType image/jpeg                      "access plus 6 months"
+  ExpiresByType image/webp                      "access plus 6 months"
+  ExpiresByType image/svg+xml                   "access plus 6 months"
+  ExpiresByType image/gif                       "access plus 6 months"
+  ExpiresByType image/x-icon                    "access plus 1 year"
+  ExpiresByType font/woff2                      "access plus 1 year"
+  ExpiresByType font/woff                       "access plus 1 year"
+  ExpiresByType application/font-woff2          "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject   "access plus 1 year"
+
+  # Default
+  ExpiresDefault                                "access plus 1 month"
+</IfModule>
+
+# --- Cache-Control Headers ---
+<IfModule mod_headers.c>
+  # Never cache the HTML shell
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-store, no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+
+  # Long-term cache for hashed JS/CSS/font bundles
+  <FilesMatch "\.(js|css|woff2|woff|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Medium cache for images
+  <FilesMatch "\.(png|jpg|jpeg|webp|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=15552000"
+  </FilesMatch>
+</IfModule>
+
+# --- Gzip Compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2
+  AddOutputFilterByType DEFLATE application/font-woff2
+</IfModule>
+
+# --- Security Headers ---
+<IfModule mod_headers.c>
+  # Prevent clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Block MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # XSS Protection (legacy browsers)
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # HSTS — enable after confirming HTTPS works (6 months)
+  Header always set Strict-Transport-Security "max-age=15768000; includeSubDomains"
+
+  # Remove server signature
+  Header unset Server
+  Header always unset X-Powered-By
+</IfModule>
+
+# --- Disable Directory Listing ---
+Options -Indexes
+
+# --- Protect sensitive files ---
+<FilesMatch "(^\.env|\.htpasswd|\.gitignore|package\.json|package-lock\.json|vite\.config\.js)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# --- Custom Error Pages ---
+ErrorDocument 404 /index.html
+ErrorDocument 403 /index.html

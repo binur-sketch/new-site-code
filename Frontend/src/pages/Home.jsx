@@ -625,53 +625,93 @@ const Home = () => {
 
 
             {/* Latest Blog Posts Section */}
-            {latestPosts.length > 0 && (
-                <section style={{ padding: '80px 0', background: '#f8fafc' }}>
-                    <div className="max-container reveal">
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '16px' }}>
-                            <div>
-                                <span style={{ display: 'inline-block', background: 'rgba(29,99,237,0.08)', color: 'var(--primary)', fontSize: '12px', fontWeight: '700', letterSpacing: '0.1em', padding: '5px 12px', borderRadius: '100px', marginBottom: '12px', border: '1px solid rgba(29,99,237,0.15)' }}>INSIGHTS & TRENDS</span>
-                                <h2 style={{ fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '900', color: 'var(--text-dark)', margin: 0 }}>Latest from Our Blog</h2>
-                            </div>
-                            <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '15px' }}>
-                                View All Articles <i className="fas fa-arrow-right"></i>
-                            </Link>
-                        </div>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '28px' }}>
-                            {latestPosts.map((post) => (
-                                <Link
-                                    key={post.id}
-                                    to={`/blog/${post.slug}`}
-                                    style={{ textDecoration: 'none', display: 'block', background: 'white', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--border)', transition: 'all 0.3s ease', boxShadow: '0 4px 12px rgba(0,0,0,0.04)' }}
-                                    onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; }}
-                                    onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.04)'; }}
-                                >
-                                    <div style={{ height: '200px', overflow: 'hidden' }}>
-                                        <img
-                                            src={post.image || DEFAULTS.blogCoverImage}
-                                            alt={post.title}
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
-                                            onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
-                                            onMouseLeave={e => e.target.style.transform = 'scale(1)'}
-                                        />
-                                    </div>
-                                    <div style={{ padding: '24px' }}>
-                                        <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '10px' }}>
-                                            {post.published_at ? new Date(post.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''}
-                                            {post.author && <span> &middot; {post.author}</span>}
-                                        </div>
-                                        <h3 style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)', lineHeight: '1.4', marginBottom: '10px' }}>{post.title}</h3>
-                                        {post.excerpt && <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>}
-                                        <div style={{ marginTop: '16px', display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: '700', fontSize: '13px' }}>
-                                            Read More <i className="fas fa-arrow-right" style={{ fontSize: '11px' }}></i>
-                                        </div>
-                                    </div>
+            {(() => {
+                const FALLBACK_POSTS = [
+                    {
+                        id: 'f1',
+                        slug: '',
+                        title: 'What is a Document Management System (DMS)?',
+                        excerpt: 'A comprehensive guide to understanding DMS — how it works, key features, and why modern enterprises are moving to digital document workflows.',
+                        image: DEFAULTS.blogCoverImage,
+                        published_at: '2025-04-10',
+                        author: 'VSDOX Team',
+                    },
+                    {
+                        id: 'f2',
+                        slug: '',
+                        title: 'Top 7 Benefits of Enterprise Content Management in 2025',
+                        excerpt: 'Discover how ECM platforms reduce costs, eliminate silos, ensure compliance, and accelerate decision-making across large organizations.',
+                        image: DEFAULTS.blogCoverImage,
+                        published_at: '2025-05-01',
+                        author: 'VSDOX Team',
+                    },
+                    {
+                        id: 'f3',
+                        slug: '',
+                        title: 'How AI is Transforming Intelligent Document Processing',
+                        excerpt: 'From OCR to RAG-based Q&A, learn how AI-powered document management is automating extraction, classification, and retrieval at scale.',
+                        image: DEFAULTS.blogCoverImage,
+                        published_at: '2025-05-20',
+                        author: 'VSDOX Team',
+                    },
+                ];
+                const displayPosts = latestPosts.length > 0 ? latestPosts : FALLBACK_POSTS;
+                return (
+                    <section style={{ padding: '80px 0', background: '#f8fafc' }}>
+                        <div className="max-container reveal">
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px', flexWrap: 'wrap', gap: '16px' }}>
+                                <div>
+                                    <span style={{ display: 'inline-block', background: 'rgba(29,99,237,0.08)', color: 'var(--primary)', fontSize: '12px', fontWeight: '700', letterSpacing: '0.1em', padding: '5px 12px', borderRadius: '100px', marginBottom: '12px', border: '1px solid rgba(29,99,237,0.15)' }}>INSIGHTS & TRENDS</span>
+                                    <h2 style={{ fontSize: 'clamp(26px, 4vw, 36px)', fontWeight: '900', color: 'var(--text-dark)', margin: 0 }}>Latest from Our Blog</h2>
+                                </div>
+                                <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '15px' }}>
+                                    View All Articles <i className="fas fa-arrow-right"></i>
                                 </Link>
-                            ))}
+                            </div>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '28px' }}>
+                                {displayPosts.map((post) => {
+                                    const cardContent = (
+                                        <>
+                                            <div style={{ height: '200px', overflow: 'hidden' }}>
+                                                <img
+                                                    src={post.image || DEFAULTS.blogCoverImage}
+                                                    alt={post.title}
+                                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                                                    onMouseEnter={e => e.target.style.transform = 'scale(1.05)'}
+                                                    onMouseLeave={e => e.target.style.transform = 'scale(1)'}
+                                                />
+                                            </div>
+                                            <div style={{ padding: '24px' }}>
+                                                <div style={{ fontSize: '12px', color: 'var(--text-muted)', marginBottom: '10px' }}>
+                                                    {post.published_at ? new Date(post.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : ''}
+                                                    {post.author && <span> &middot; {post.author}</span>}
+                                                </div>
+                                                <h3 style={{ fontSize: '17px', fontWeight: '800', color: 'var(--text-dark)', lineHeight: '1.4', marginBottom: '10px' }}>{post.title}</h3>
+                                                {post.excerpt && <p style={{ fontSize: '14px', color: 'var(--text-muted)', lineHeight: '1.6', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{post.excerpt}</p>}
+                                                <div style={{ marginTop: '16px', display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: '700', fontSize: '13px' }}>
+                                                    Read More <i className="fas fa-arrow-right" style={{ fontSize: '11px' }}></i>
+                                                </div>
+                                            </div>
+                                        </>
+                                    );
+                                    const cardStyle = { textDecoration: 'none', display: 'block', background: 'white', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--border)', transition: 'all 0.3s ease', boxShadow: '0 4px 12px rgba(0,0,0,0.04)' };
+                                    const onEnter = e => { e.currentTarget.style.transform = 'translateY(-6px)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)'; };
+                                    const onLeave = e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.04)'; };
+                                    return post.slug ? (
+                                        <Link key={post.id} to={`/blog/${post.slug}`} style={cardStyle} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                                            {cardContent}
+                                        </Link>
+                                    ) : (
+                                        <Link key={post.id} to="/blog" style={cardStyle} onMouseEnter={onEnter} onMouseLeave={onLeave}>
+                                            {cardContent}
+                                        </Link>
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
-                </section>
-            )}
+                    </section>
+                );
+            })()}
 
             {/* CTA Section */}
             <section className="cta-section reveal">
