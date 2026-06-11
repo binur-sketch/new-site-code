@@ -140,12 +140,12 @@ export const BankingBFSI = () => {
             <SEO
                 title="Document Management System for Banking & BFSI | VSDOX"
                 description="Secure BFSI document management system for banks, NBFCs and financial teams with workflow automation, audit trails, access control and compliance support."
-                keywords="BFSI document management, banking DMS, insurance ECM, KYC automation, loan document management, NBFC DMS India"
+                keywords="Enterprise Document Management System"
             />
             <PageHero
-                tag="INDUSTRY SOLUTION · BFSI"
-                title="Document Intelligence for Banking & Financial Services"
-                subtitle="Accelerate loan processing, ensure regulatory compliance, and digitize operations with an enterprise-grade ECM platform trusted by leading banks and insurers."
+                tag="Enterprise Document Management System"
+                title="Document Management System for Banking & BFSI | VSDOX"
+                subtitle="Secure BFSI document management system for banks, NBFCs and financial teams with workflow automation, audit trails, access control and compliance support."
                 bgImage="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?q=80&w=2400&auto=format&fit=crop"
             />
 
@@ -218,12 +218,12 @@ export const Healthcare = () => {
             <SEO
                 title="Healthcare Document Management System | VSDOX"
                 description="Secure healthcare document management system for hospitals and medical institutions to manage records, approvals, access control and digital files."
-                keywords="healthcare document management, patient records DMS, clinical records system, hospital ECM India, HIPAA compliant DMS"
+                keywords="Document Management System"
             />
             <PageHero
-                tag="INDUSTRY SOLUTION · HEALTHCARE"
-                title="Secure Patient Records & Clinical Document Management"
-                subtitle="Digitize patient files, streamline clinical operations, and ensure HIPAA-compliant document handling across hospitals, clinics, and insurance providers."
+                tag="Document Management System"
+                title="Healthcare Document Management System | VSDOX"
+                subtitle="Secure healthcare document management system for hospitals and medical institutions to manage records, approvals, access control and digital files."
                 bgImage="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2400&auto=format&fit=crop"
             />
 
@@ -278,12 +278,12 @@ export const Corporate = () => {
             <SEO
                 title="Document Management Software for Businesses | VSDOX"
                 description="VSDOX helps businesses manage HR, finance, legal and operational documents with secure access, version control, workflow automation and audit trails."
-                keywords="corporate document management, finance DMS, HR document management, employee records DMS, enterprise ECM India, payroll document management"
+                keywords="Document Management Software for Businesses"
             />
             <PageHero
-                tag="INDUSTRY SOLUTION · Corporate"
-                title="Smart Document Control for Modern Corporate"
-                subtitle="Automate engineering document control, quality management records, and supply chain documentation to drive operational excellence across your plant floor."
+                tag="Document Management Software for Businesses"
+                title="Document Management Software for Businesses | VSDOX"
+                subtitle="VSDOX helps businesses manage HR, finance, legal and operational documents with secure access, version control, workflow automation and audit trails."
                 bgImage="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2400&auto=format&fit=crop"
             />
 
@@ -340,12 +340,12 @@ export const Education = () => {
             <SEO
                 title="Digital Document Management System for Education | VSDOX"
                 description="VSDOX helps educational institutions digitize student records, admin files, certificates and approvals with a secure digital document management system."
-                keywords="education document management, university digital archive, library digitization, institutional repository India, NAAC compliance docs"
+                keywords="Digital Document Management System"
             />
             <PageHero
-                tag="INDUSTRY SOLUTION · EDUCATION"
-                title="Next-Generation Digital Archives for Academic Institutions"
-                subtitle="Manage research repositories, student records, institutional archives, and library collections with an intelligent, scalable, open-source ECM platform."
+                tag="Digital Document Management System"
+                title="Digital Document Management System for Education | VSDOX"
+                subtitle="VSDOX helps educational institutions digitize student records, admin files, certificates and approvals with a secure digital document management system."
                 bgImage="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2400&auto=format&fit=crop"
             />
 
@@ -400,12 +400,12 @@ export const Government = () => {
             <SEO
                 title="Enterprise Content Management for Government | VSDOX"
                 description="VSDOX offers enterprise content management solutions for government departments to digitize records, manage files, improve approvals and secure documents."
-                keywords="government document management, e-governance DMS, public sector ECM, ministry records management, GeM DMS, land records digitization India"
+                keywords="Enterprise Content Management Solutions"
             />
             <PageHero
-                tag="INDUSTRY SOLUTION · GOVERNMENT"
-                title="Digital Document Governance for Public Sector Excellence"
-                subtitle="Enable e-governance, digitize citizen records, and modernize judiciary and ministry document workflows with a secure, sovereign-grade ECM platform."
+                tag="Enterprise Content Management Solutions"
+                title="Enterprise Content Management for Government | VSDOX"
+                subtitle="VSDOX offers enterprise content management solutions for government departments to digitize records, manage files, improve approvals and secure documents."
                 bgImage="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2400&auto=format&fit=crop"
             />
 
@@ -460,12 +460,12 @@ export const Judiciary = () => {
             <SEO
                 title="Digital Document Management System for Judiciary | VSDOX"
                 description="Digitize and manage court records, case files and legal documents with a secure digital document management system built for judiciary workflows."
-                keywords="judiciary document management, court DMS India, e-filing system, case records digitization, High Court ECM, legal document management"
+                keywords="Digital Document Management System"
             />
             <PageHero
                 tag="INDUSTRY SOLUTION · JUDICIARY"
-                title="Digital Transformation for Courts & Legal Systems"
-                subtitle="Streamline e-filing, digitize case records, and enable intelligent information retrieval for high courts, district courts, and legal institutions."
+                title="Digital Document Management System for Judiciary | VSDOX"
+                subtitle="Digitize and manage court records, case files and legal documents with a secure digital document management system built for judiciary workflows."
                 bgImage="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2400&auto=format&fit=crop"
             />
 

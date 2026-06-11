@@ -96,11 +96,11 @@ export const About = () => {
             <SEO
                 title="About VSDOX | Enterprise Content Management Software"
                 description="Learn about VSDOX by Vir Softech, an enterprise content management software solution built for secure, scalable and intelligent document workflows."
-                keywords="Vir Softech, about VSDOX, ECM company India, DMS provider, ISO certified document management, CMMI Level 3, DMS, Document Management System, ECM, Enterprise Content Management System, AI-powered document management, Secure ECM, Scalable Enterprise Content Management, Intelligent capture, Seamless integration, Lifecycle automation, Advanced search, Digital operations, Content platform, Cloud-based centralized repository, Version control, Auditability, Approval workflows, Electronic DMS, Records Management, Content lifecycle management, API integration, Document classification"
+                keywords="Enterprise Content Management Software"
             />
             <PageHero
-                title="About Vir Softech"
-                subtitle="Business-led IT process transformation for a digital world."
+                title="About VSDOX | Enterprise Content Management Software"
+                description="Learn about VSDOX by Vir Softech, an enterprise content management software solution built for secure, scalable and intelligent document workflows."
                 bgImage={teamMemberBg}
             />
 

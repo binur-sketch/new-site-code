@@ -299,7 +299,7 @@ const Blog = () => {
       <SEO
         title="Document Management Software Guides & Insights | VSDOX"
         description="Read VSDOX insights on document management software, enterprise content management, AI document processing, digital workflows and business automation."
-        keywords="ECM blog, document management articles, AI DMS insights, enterprise content management trends, VSDOX blog, Vir Softech insights"
+        keywords="Best Document Management Software"
       />
       {showDashboard && canManageContent && (
         <>
@@ -315,9 +315,9 @@ const Blog = () => {
       )}
 
       <CompanyPageHero
-        tag="INSIGHTS & TRENDS"
-        title="Insights & Blog"
-        subtitle="Thought leadership, technology trends, and industry updates from the experts in document intelligence."
+        tag="Best Document Management Software"
+        title="Document Management Software Guides & Insights | VSDOX"
+        subtitle="Read VSDOX insights on document management software, enterprise content management, AI document processing, digital workflows and business automation."
         bgImage={blogHeroBg}
       />
 

@@ -44,12 +44,12 @@ const DigitizationServices = () => {
             <SEO
                 title="Document Digitization Services & Digital DMS | VSDOX"
                 description="Convert physical files into a secure digital document management system with scanning, indexing, OCR, workflow and enterprise-ready document access."
-                keywords="heritage digitization, document scanning India, manuscript digitization, microfilm conversion, audiovisual digitization, archival scanning services, DMS, Document Management System, ECM, Enterprise Content Management System, AI-powered document management, Secure ECM, Scalable Enterprise Content Management, Intelligent capture, Seamless integration, Lifecycle automation, Advanced search, Digital operations, Content platform, Cloud-based centralized repository, Version control, Auditability, Approval workflows, Electronic DMS, Workflow automation, Records Management, Content lifecycle management, Document classification, Digital preservation"
+                keywords="Digital Document Management System"
             />
             <PageHero
-                tag="SPECIALIZED SERVICES"
-                title="Multimedia & Heritage Digitization"
-                subtitle="Transforming fragile historical archives into permanent digital legacies using state-of-the-art preservation technology."
+                tag="Digital Document Management System"
+                title="Document Digitization Services & Digital DMS | VSDOX"
+                subtitle="Convert physical files into a secure digital document management system with scanning, indexing, OCR, workflow and enterprise-ready document access."
                 bgImage="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2400&auto=format&fit=crop"
             />
             <SpecializedDigitization />
