@@ -47,9 +47,9 @@ const DigitizationServices = () => {
                 keywords="Digital Document Management System"
             />
             <PageHero
-                tag="Digital Document Management System"
-                title="Document Digitization Services & Digital DMS | VSDOX"
-                subtitle="Convert physical files into a secure digital document management system with scanning, indexing, OCR, workflow and enterprise-ready document access."
+                tag="SPECIALIZED SERVICES"
+                title="Multimedia & Heritage Digitization"
+                subtitle="Transforming fragile historical archives into permanent digital legacies using state-of-the-art preservation technology."
                 bgImage="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2400&auto=format&fit=crop"
             />
             <SpecializedDigitization />

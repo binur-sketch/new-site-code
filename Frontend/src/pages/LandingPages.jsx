@@ -134,8 +134,8 @@ export const DocumentManagementSoftware = () => {
             />
             <PageHero
                 tag="SOFTWARE SOLUTION"
-                title="Document Management Software for Businesses | VSDOX"
-                description="VSDOX is a secure, AI-powered document management software that helps businesses digitize, organize, and automate document workflows — all from one central platform."
+                title="Document Management Software for Modern Business"
+                subtitle="Transform your paper-based processes into intelligent digital workflows with VSDOX Document Management Software. Secure storage, smart indexing, and automated access."
                 bgImage={bgDocManagement}
             />
 
@@ -229,8 +229,8 @@ export const EnterpriseDocumentManagementSystem = () => {
             />
             <PageHero
                 tag="ENTERPRISE SOLUTION"
-                title="Enterprise Document Management System (EDMS) | VSDOX"
-                description="VSDOX EDMS is built for large enterprises — featuring role-based access, immutable audit trails, and multi-department workflow automation to ensure compliance at scale."
+                title="Enterprise Document Management System"
+                subtitle="Scale your operations securely. VSDOX provides robust governance, comprehensive audit trails, and high-performance document control for large-scale enterprises."
                 bgImage={bgEnterpriseDms}
             />
 
@@ -307,8 +307,8 @@ export const EnterpriseContentManagementSystem = () => {
             />
             <PageHero
                 tag="ECM PLATFORM"
-                title="Enterprise Content Management System (ECM) | VSDOX"
-                description="Go beyond documents. VSDOX ECM captures, manages, and governs all unstructured enterprise content — from emails and rich media to web assets — throughout its full lifecycle."
+                title="Enterprise Content Management System"
+                subtitle="Beyond documents. Capture, manage, store, preserve, and deliver all unstructured content across your organization with VSDOX ECM."
                 bgImage={bgEcm}
             />
 
@@ -366,8 +366,8 @@ export const AiDocumentManagementSoftware = () => {
             />
             <PageHero
                 tag="AI-POWERED SOLUTION"
-                title="AI Document Management Software & IDP Solution | VSDOX"
-                description="Automate document capture, classification, and data extraction with VSDOX AI-powered DMS. Reduce manual processing by up to 80% using OCR, NLP, and machine learning."
+                title="AI Document Management Software"
+                subtitle="An intelligent platform that automates document capture, classification, indexing, and retrieval using AI. Enables secure storage, smart search, workflow automation, and compliance-driven document management across the enterprise."
                 bgImage={bgAiDms}
             />
 

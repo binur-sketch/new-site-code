@@ -315,9 +315,9 @@ const Blog = () => {
       )}
 
       <CompanyPageHero
-        tag="Best Document Management Software"
-        title="Document Management Software Guides & Insights | VSDOX"
-        subtitle="Read VSDOX insights on document management software, enterprise content management, AI document processing, digital workflows and business automation."
+        tag="INSIGHTS & TRENDS"
+        title="Insights & Blog"
+        subtitle="Thought leadership, technology trends, and industry updates from the experts in document intelligence."
         bgImage={blogHeroBg}
       />
 

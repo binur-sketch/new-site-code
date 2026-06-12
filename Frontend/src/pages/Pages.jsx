@@ -99,8 +99,8 @@ export const About = () => {
                 keywords="Enterprise Content Management Software"
             />
             <PageHero
-                title="About VSDOX | Enterprise Content Management Software"
-                description="Learn about VSDOX by Vir Softech, an enterprise content management software solution built for secure, scalable and intelligent document workflows."
+                title="About Vir Softech"
+                subtitle="Business-led IT process transformation for a digital world."
                 bgImage={teamMemberBg}
             />
 

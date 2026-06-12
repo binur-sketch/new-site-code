@@ -295,8 +295,8 @@ export const CaseStudies = () => {
             />
             <CompanyPageHero
                 tag="SUCCESS STORIES"
-                title="Enterprise Content Management Case Studies | VSDOX"
-                description="Explore how VSDOX helps organizations improve document control, workflow automation, enterprise content management and digital transformation."
+                title="Real Results. Real Clients. Real Impact."
+                subtitle="Discover how leading organizations across India and the globe transformed their document operations with VSDOX AI-powered ECM."
                 bgImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2400&auto=format&fit=crop"
             />
 
@@ -421,8 +421,8 @@ export const ContactUs = () => {
             />
             <CompanyPageHero
                 tag="GET IN TOUCH"
-                title="Book a Demo for Document Management Software | VSDOX"
-                description="Contact VSDOX to book a demo of document management software for secure storage, workflow automation, enterprise access control and digital records."
+                title="Let's Talk About Your Document Challenges"
+                subtitle="Our ECM experts are ready to help you digitize, automate, and secure your document operations. Reach out today."
                 bgImage="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2400&auto=format&fit=crop"
             />
 
